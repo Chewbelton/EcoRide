@@ -72,50 +72,24 @@ article h1 {
 }
 
 
-  /* -- Gestion du carousel -- */
-.slideshow {
+  /* -- Présentation de l'entreprise -- */
+.company-prez {
   margin: 2rem 0;
   grid-area: 2 / 5 / 3 / span 4;
-}
-
-.main-carousel {
-  position: relative;
-  margin: auto;
   display: flex;
+  flex-direction: column;
 }
 
-/* Hide the images by default */
-.carousel-item {
-  display: none;
+.img-prez {
+  margin-bottom: 3rem;
 }
 
-.carousel-item img {
+.img-prez img {
   width: 100%;
 }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  /* the negative margin allows for the arrows to be out of the picture, and the padding to give more space to click "on" the arrow */
-  margin: 0 -7rem;
-  padding: 1rem;
-  color: var(--dark);
-  font-weight: bold;
-  font-size: 1.6rem;
-  transition: 0.6s ease;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-}
-
 /* Caption text */
-.carousel-text {
+.text-prez {
   color: var(--dark);
   font-size: 1.6rem;
   margin-left: -15%;
@@ -123,7 +97,8 @@ article h1 {
   width: 130%;
   text-align: justify;
 
-  /* !!! WORKING SOLUTION !!! */
+  /* hide the txt if too long */
+  /* maybe won't use it after all */
   overflow: hidden;
   text-overflow: "...";
   display: -webkit-box;
@@ -131,40 +106,12 @@ article h1 {
   -webkit-box-orient: vertical;            
 }
 
-/* The dots/bullets/indicators */
-/* définir une valeur fixe à la zone de texte pour garantir la position des dots et des flèches */
-.carousel-dot {
-  text-align: center;
-  position: relative;
-  bottom: 11.5rem;
+.brk-line {
+  border: 0.1rem solid var(--primary);
+  margin-bottom: 3rem;
+  width: 130%;
+  margin-left: -15%;
 }
-
-.dot {
-  cursor: pointer;
-  height: 1.5rem;
-  width: 1.5rem;
-  margin: 0 0.2rem;
-  background-color: var(--dark);
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s ease-in;
-}
-
-.active, .dot:hover {
-  background-color: var(--background);
-}
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 2s;
-}
-
-@keyframes fade {
-  from {opacity: 0.8}
-  to {opacity: 1}
-}
-
 
   /* -- 'En savoir plus' button -- */
 

@@ -1,0 +1,126 @@
+---- Search bars ----
+
+/* header search */
+<section id="header-search" class="search-bar">
+  <p class="search-bar-text">Rechercher</p>
+  <p class="material-symbols-outlined search-bar-text">search</p>
+</section>
+
+/* hero search */
+<div id="hero-search" class="search-bar">
+  <h2 class="search-bar-text">Rechercher</h2>
+  <p class="material-symbols-outlined search-bar-text">search</p>
+</div>
+
+.search-bar {
+  background-color: var(--background);
+  text-align: center;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.search-bar-text {
+  font-style: italic;
+  padding: 0 1rem;
+  opacity: 50%;
+}
+
+
+
+---- Carousel code ----
+  /* -- Gestion du carousel -- */
+.slideshow {
+  margin: 2rem 0;
+  grid-area: 2 / 5 / 3 / span 4;
+}
+
+.main-carousel {
+  position: relative;
+  margin: auto;
+  display: flex;
+}
+
+/* Hide the images by default */
+.carousel-item {
+  display: none;
+}
+
+.carousel-item img {
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  /* the negative margin allows for the arrows to be out of the picture, and the padding to give more space to click "on" the arrow */
+  margin: 0 -7rem;
+  padding: 1rem;
+  color: var(--dark);
+  font-weight: bold;
+  font-size: 1.6rem;
+  transition: 0.6s ease;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+}
+
+/* Caption text */
+.carousel-text {
+  color: var(--dark);
+  font-size: 1.6rem;
+  margin-left: -15%;
+  padding-top: 0.8rem;
+  width: 130%;
+  text-align: justify;
+
+  /* !!! WORKING SOLUTION !!! */
+  overflow: hidden;
+  text-overflow: "...";
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;            
+}
+
+/* The dots/bullets/indicators */
+/* définir une valeur fixe à la zone de texte pour garantir la position des dots et des flèches */
+.carousel-dot {
+  text-align: center;
+  position: relative;
+  bottom: 11.5rem;
+}
+
+.dot {
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0 0.2rem;
+  background-color: var(--dark);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease-in;
+}
+
+.active, .dot:hover {
+  background-color: var(--background);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  from {opacity: 0.8}
+  to {opacity: 1}
+}
