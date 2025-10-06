@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./src/assets/favicon.ico">
+  <!-- feuille de style scss -->
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <link rel="stylesheet" href="./src/styles/headfoot.css">
+  <link rel="stylesheet" href="./src/styles/home.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+
+  <!-- Personnal fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <title>EcoRide - Accueil</title>
+</head>
+
+
+<body>
+  <!-- ---- header ---- -->
+  <header>
+    <a id="logo" href="#">
+      <img src="./src/assets/images/logo.jpg">
+      <h2>EcoRide</h2>
+    </a>
+    <form class="search-form">
+      <section id="header-search" class="search-bar">
+        <input type="text" placeholder="Rechercher..." class="search-bar-text">
+        <button type="submit">
+          <p class="material-symbols-outlined search-bar-text">search</p>
+        </button>
+      </section>
+    </form>
+    <section id="nav">
+      <nav>
+        <ul>
+          <li class="nav-text"><a href="/">Accueil</a></li>
+          <li class="nav-text"><a href="/choix-trajet">Covoiturages</a></li>
+          <li class="nav-text"><a href="/mon-compte">Mon compte</a></li>
+          <li class="nav-text"><a href="#">Contacts</a></li>
+          <li class="nav-text"><a href="#">Connexion</a></li>
+        </ul>
+    </nav>
+    </section>
+  </header>
+  
+  <!-- ---- main ---- -->
+  <main id="main-page">
+    
+  </main>
+
+  <!-- ---- footer ---- -->
+  <footer>
+    <div class="contacts">
+      <a href="#">Contacts</a>
+      <a href="#">À propos</a>
+    </div>
+    <div class="mentions-legales">
+      <a href="#">Mentions légales</a>
+    </div>
+  </footer>
+
+  <script src="./src/routes/carousel.js"></script>
+  <script type="module" src="./src/routes/router.js"></script>
+</body>
+</html>

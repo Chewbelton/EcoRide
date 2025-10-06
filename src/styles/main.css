@@ -1,0 +1,108 @@
+/* ---- Universal ---- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #73E2A7;
+  --secondary: #186846;
+  --background: #D7F2BB;
+  --dark: #13391F;
+}
+
+html {
+  font-size: 10px;
+  font-family: 'Quattrocento Sans', Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-rows:auto 1fr auto;
+  grid-template-columns:100%;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+header {
+  grid-row: 1 / 2;
+}
+
+main {
+  grid-row: 2 / 3;
+}
+
+footer {
+  grid-row: 3 / 4;
+}
+
+/* -- divs general style */
+
+.search-form {
+  justify-self: center;
+}
+
+.search-bar {
+  background-color: var(--background);
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.search-bar input, .search-bar button {
+  border: none;
+  background-color: var(--background);
+}
+
+.search-bar button {
+  display: flex;
+}
+
+.search-bar p {
+  justify-self: center;
+  align-self: center;
+}
+
+.search-bar p:active {
+  background-color: var(--primary);
+  border-radius: 1rem;
+}
+
+.search-bar input[type=text] {
+  width: 80%;
+}
+
+.search-bar-text {
+  font-style: italic;
+  opacity: 50%;
+}
+
+
+/* -- text general style -- */
+
+h1, h2 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+
+h2 {
+  font-size: 2.6rem;
+}
+
+a {
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+p, .nav-text {
+  font-size: 1.6rem;
+}

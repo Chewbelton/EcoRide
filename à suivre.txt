@@ -1,0 +1,31 @@
+Organisation de la main page/main-article :
+
+EN TRAIN DE REORGANISER AVEC DES COLONNES
+
+IL FAUT AUSSI AJOUTER LES LIGNES POUR FOUTRE LE HEADER SUR LES PREMIERES LIGNES,
+ET ENSUITE FAUDRA INSTALLER DES LIGNES AUTOMATIQUES
+
+POUR LES ROWS, JE PEUX FAIRE UN repeat(auto, 65px) (LA TAILLE DU HEADER)
+
+ENFIN POUR CETTE HISTOIRE DE 'auto' À VOIR SI C'EST POSSIBLE
+
+
+ENFIN EN VRAI POUR CET ECRAN D'ACCUEIL UN SIMPLE DIV EN PLUS POUR CENTRER L'ARTICLE C'EST LE PLUS SIMPLE
+
+________________________
+
+Header pour les media queries d'écrans de taille moyenne :
+  -> Enlever le titre "EcoRide" et le remplace par la barre de recherche
+  -> diviser le header en deux (et plus en trois comme en mode desktop)
+
+
+
+
+_______________________________________________
+
+Notes sur les ratés : 
+  -> tentative d'empêcher le mouvement du menu quand on hover: bold, impossible de trouver la solution
+    -> essais avec element::after (ou before) et visibility hidden, etc., mais ça ne marche pas.
+    -> Constat : ça fait bouger TOUTE la ligne, pas juste les éléments nav, donc ça doit être un problème dû aux colonnes peut-être ?
+    -> Autre curiosité, avec certaines solutions, le element::after ne se met pas par dessus/dessous, mais simplement en dessous... bref. incompréhensible.
+    
