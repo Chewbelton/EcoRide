@@ -14,6 +14,7 @@
 }
 
 html {
+  color: var(--dark);
   font-size: 10px;
   font-family: 'Quattrocento Sans', Arial, sans-serif;
 }
@@ -21,7 +22,7 @@ html {
 body {
   display: grid;
   grid-template-rows:auto 1fr auto;
-  grid-template-columns:100%;
+  grid-template-columns: 100%;
   min-height: 100vh;
   min-height: 100svh;
 }
@@ -32,14 +33,46 @@ header {
 
 main {
   grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 
 footer {
   grid-row: 3 / 4;
 }
 
-/* -- divs general style */
+/* -- text general style -- */
 
+h1, h2 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+
+h2 {
+  font-size: 2.6rem;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+a {
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+p, li, .nav-text, div, input  {
+  font-size: 1.6rem;
+}
+
+
+/* -- Search bar properties -- */
+/* --- Shared properties ---- */
 .search-form {
   justify-self: center;
 }
@@ -83,26 +116,21 @@ footer {
 }
 
 
-/* -- text general style -- */
-
-h1, h2 {
-  font-weight: 400;
+/* -- button class -- */
+.button-class {
+  color: var(--secondary);
+  background-color: var(--primary);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
 }
 
-h1 {
-  font-size: 3.5rem;
+.button-class:hover {
+  font-weight: bold;
+  box-shadow: 0 0 0.5rem var(--primary);
 }
 
-
-h2 {
-  font-size: 2.6rem;
-}
-
-a {
-  font-size: 1.6rem;
-  text-decoration: none;
-}
-
-p, .nav-text {
-  font-size: 1.6rem;
+.button-class:active {
+  box-shadow: none;
+  background-color: var(--secondary);
+  color: var(--background);
 }

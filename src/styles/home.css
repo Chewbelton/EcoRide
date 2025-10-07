@@ -6,6 +6,7 @@
   background-position: center;
   background-repeat: no-repeat;
   height: 39rem;
+  grid-column: 1 / -1;
   display: grid;
   grid-template-rows: 65px 3fr 1fr;/* repeat(4, 1fr) */
   grid-template-columns: repeat(8, 1fr);
@@ -61,12 +62,12 @@
 article {
   box-shadow: inset 0 0 2.5rem var(--background);
   padding: 4rem;
+  grid-column: 1 / -1;
   display: grid;
   grid-template: repeat(3, auto) / repeat(12, 1fr);
 }
 
 article h1 {
-  color: var(--dark);
   font-weight: bold;
   grid-area: 1 / 5 / 2 / -1;
 }
@@ -90,7 +91,6 @@ article h1 {
 
 /* Caption text */
 .text-prez {
-  color: var(--dark);
   font-size: 1.6rem;
   margin-left: -15%;
   padding-top: 0.8rem;
@@ -113,24 +113,7 @@ article h1 {
   margin-left: -15%;
 }
 
-  /* -- 'En savoir plus' button -- */
-
 article .button-class {
-  color: var(--secondary);
-  background-color: var(--primary);
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
   grid-area: 3 / 6 / 4 / span 2;
   justify-self: center;
-}
-
-article .button-class:hover {
-  font-weight: bold;
-  box-shadow: 0 0 0.5rem var(--primary);
-}
-
-article .button-class:active {
-  box-shadow: none;
-  background-color: var(--secondary);
-  color: var(--background);
 }

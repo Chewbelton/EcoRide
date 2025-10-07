@@ -1,1 +1,253 @@
-<h1>Où allez-vous ?</h1>
+<!-- ---- Menu latéral ---- -->
+<section class="left-menu">
+
+  <!-- -- Résumé du trajet -- -->
+  <section class="resume-trajet border-frame">
+    <h3>Résumé du trajet</h3>
+    <div class="trajet-specs">
+      <ul class="liste-resume">
+        <li>De : xx ville</li>
+        <li>Vers : xx ville</li>
+        <li>le : xx date</li>
+        <li>à : xx heure</li>
+      </ul>
+    </div>
+    <a href="#" class="button-class">Nouveau trajet</a>
+  </section>
+
+  <!-- -- Menu de filtres -- -->
+  <section class="filtres border-frame">
+    <h3>Filtrer</h3>
+    <section class="liste-filtres">
+      <div class="filtre-input">
+        <label for="label-eco">Trajet écologique</label>
+        <input type="checkbox" id="label-eco" name="filter" value="label-eco" />
+      </div>
+      <div class="filtre-input">
+        <label for="animaux">Animaux</label>
+        <input type="checkbox" id="animaux" name="filter" value="animaux" />
+      </div>
+      <div class="filtre-input">
+        <label for="fumeur">Fumeur</label>
+        <input type="checkbox" id="fumeur" name="filter" value="fumeur" />
+      </div>
+      <!-- The following boxes are numbers to chose.
+      Use the input ID to limit the size of the input box -->
+      <div class="filtre-input">
+        <label for="note-mine">Note min. :</label>
+        <input type="number" id="note-min" name="filter" min="0" max="5"/>
+      </div>
+      <div class="filtre-input">
+        <label for="prix-max">Prix max. : </label>
+        <input type="number" id="prix-max" name="filter" min="0"/>
+      </div>
+      <div class="filtre-input">
+        <label for="duree-max">Durée max. : </label>
+        <input type="number" id="duree-max" name="filter" min="0"/>
+      </div>
+    </section>
+    <a href="#" class="button-class">Filtrer</a>
+  </section>
+</section>
+
+<!-- ---- Main trajet view ---- -->
+<section class="main-trajet">
+  <section class="choix-trajet">
+    <!-- Les différents input, notamment pour choisir date et heure : https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input -->
+    <h2>Où allez-vous ?</h2>
+    <!-- Voyage aller -->
+    <div class="voyage-aller">
+      <div class="depart bkgrd-input">
+        <input type="text" id="ville-depart-aller" name="ville-depart-aller" placeholder="Départ : ..."/>
+        <input type="date" id="date-depart-aller" name="date-depart-aller"/>
+        <input type="time" id="heure-depart-aller" name="heure-depart-aller"/>
+      </div>
+      <div class="arrivee bkgrd-input">
+        <input type="text" id="ville-arrivee-aller" name="ville-arrivee-aller" placeholder="Arrivée : ..."/>
+        <input type="date" id="date-arrivee-aller" name="date-arrivee-aller"/>
+        <input type="time" id="heure-arrivee-aller" name="heure-arrivee-aller"/>
+      </div>
+    </div>
+    <br>
+    <!-- Voir D:\Cours de code\Studi\2 - Cours - Full-stack\1 - Front-end\JavaScript\ExoJS\Projet_JS pour la gestion des champs optionnels -->
+    <div class="choix-retour ">
+      <label for="choix-retour">Aller-retour ?</label>
+      <input type="checkbox" id="choix-retour" name="choix-retour"/>
+    </div>
+    <!-- Voyage retour, si choisi par l'utilisateur -->
+    <div class="voyage-retour">
+      <div class="depart bkgrd-input">
+        <input type="text" id="ville-depart-retour" name="ville-depart-retour" placeholder="Départ : ..."/>
+        <input type="date" id="date-depart-retour" name="date-depart-retour"/>
+        <input type="time" id="heure-depart-retour" name="heure-depart-retour"/>
+      </div>
+      <div class="arrivee bkgrd-input">
+        <input type="text" id="ville-arrivee-retour" name="ville-arrivee-retour" placeholder="Arrivée : ..."/>
+        <input type="date" id="date-arrivee-retour" name="date-arrivee-retour"/>
+        <input type="time" id="heure-arrivee-retour" name="heure-arrivee-retour"/>
+      </div>
+    </div>
+  </section>
+
+  <div class="liste-covoit-brkline"></div>
+
+  <!-- Liste des covoit disponibles -->
+  <section class="liste-covoit">
+    <h3>XX trajets correspondent à votre recherche :</h3>
+    <!-- Premier covoit exemple -->
+    <section class="covoit-dispo">
+      <div class="overview-info-driver">
+        <div class="pp-driver">
+          <img src="../src/assets/images/pp-driver.jpg">
+        </div>
+        <div class="detail-driver">
+          <p class="driver-name">Jeanne RENAULT</p>
+          <p>Note : 4.5 / 5</p>
+          <p>Préférences : OK pour les animaux !</p>
+        </div>
+      </div>
+      <div class="overview-label-eco">
+        <div class="label-eco-driver pastille-txt-color">Trajet ECO</div>
+      </div>
+      <div class="overview-detail-trajet">
+        <h3>Trajet</h3>
+        <div class="overview-place-duree">
+          <p class="places-dispo">Places disponibles : xx places</p>
+          <p class="temps-duree-totale">Durée : xxhxx / xx km</p>
+        </div>
+        <div class="infos-destination">
+          <div class="detail-depart-arrivee">
+            <div class="overview-adresse">
+              <p><strong>Départ : </strong>Place Kleber, Strasbourg</p>
+            </div>
+            <div class="overview-horaires">
+              <p><strong>le </strong>21/10/25</p>
+              <p><strong>à </strong>8h30</p>
+            </div>
+          </div>
+          <div class="detail-depart-arrivee">
+            <div class="overview-adresse">
+              <p><strong>Arrivée : </strong>Nation, Paris</p>
+            </div>
+            <div class="overview-horaires">
+              <p><strong>le </strong>21/10/25</p>
+              <p><strong>à </strong>14h30</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overview-prix">
+        <div class="pastille-prix">
+          <p class="pastille-txt-color">60 €</p>
+        </div>
+      </div>
+      <div class="overview-detail-button">
+        <a href="#" class="button-class">Détails</a>
+      </div>
+    </section>
+
+    <!-- deuxième covoit exemple -->
+    <section class="covoit-dispo">
+      <div class="overview-info-driver">
+        <div class="pp-driver">
+          <img src="../src/assets/images/pp-driver_2.jpg">
+        </div>
+        <div class="detail-driver">
+          <p class="driver-name">Franck ALBERTON</p>
+          <p>Note : 4 / 5</p>
+          <p>Préférences : Trajet fumeur</p>
+        </div>
+      </div>
+      <div class="overview-label-eco">
+        <div class="label-eco-driver pastille-txt-color">Trajet ECO</div>
+      </div>
+      <div class="overview-detail-trajet">
+        <h3>Trajet</h3>
+        <div class="overview-place-duree">
+          <p class="places-dispo">Places disponibles : xx places</p>
+          <p class="temps-duree-totale">Durée : xxhxx / xx km</p>
+        </div>
+        <div class="infos-destination">
+          <div class="detail-depart-arrivee">
+            <div class="overview-adresse">
+              <p><strong>Départ : </strong>Place de la bourse, Bordeaux</p>
+            </div>
+            <div class="overview-horaires">
+              <p><strong>le </strong>18/10/25</p>
+              <p><strong>à </strong>9h45</p>
+            </div>
+          </div>
+          <div class="detail-depart-arrivee">
+            <div class="overview-adresse">
+              <p><strong>Arrivée : </strong>Vieux-Port, La Rochelle</p>
+            </div>
+            <div class="overview-horaires">
+              <p><strong>le </strong>18/10/25</p>
+              <p><strong>à </strong>12h30</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overview-prix">
+        <div class="pastille-prix">
+          <p class="pastille-txt-color">45 €</p>
+        </div>
+      </div>
+      <div class="overview-detail-button">
+        <a href="#" class="button-class">Détails</a>
+      </div>
+    </section>
+
+    <!-- troisème covoit exemple -->
+    <section class="covoit-dispo">
+      <div class="overview-info-driver">
+        <div class="pp-driver">
+          <img src="../src/assets/images/pp-driver_3.jpg">
+        </div>
+        <div class="detail-driver">
+          <p class="driver-name">Natasha OLGANOFF</p>
+          <p>Note : 4 / 5</p>
+          <p>Préférences : rien à signaler</p>
+        </div>
+      </div>
+      <div class="overview-label-eco">
+        <div class="label-eco-driver pastille-txt-color">Trajet ECO</div>
+      </div>
+      <div class="overview-detail-trajet">
+        <h3>Trajet</h3>
+        <div class="overview-place-duree">
+          <p class="places-dispo">Places disponibles : xx places</p>
+          <p class="temps-duree-totale">Durée : xxhxx / xx km</p>
+        </div>
+        <div class="infos-destination">
+          <div class="detail-depart-arrivee">
+            <div class="overview-adresse">
+              <p><strong>Départ : </strong>2, rue Charles Huck, Bischheim</p>
+            </div>
+            <div class="overview-horaires">
+              <p><strong>le </strong>02/11/25</p>
+              <p><strong>à </strong>7h20</p>
+            </div>
+          </div>
+          <div class="detail-depart-arrivee">
+            <div class="overview-adresse">
+              <p><strong>Arrivée : </strong>162, avenue Paul Vaillant Couturier, 75014 Paris</p>
+            </div>
+            <div class="overview-horaires">
+              <p><strong>le </strong>02/11/25</p>
+              <p><strong>à </strong>13h30</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overview-prix">
+        <div class="pastille-prix">
+          <p class="pastille-txt-color">75 €</p>
+        </div>
+      </div>
+      <div class="overview-detail-button">
+        <a href="#" class="button-class">Détails</a>
+      </div>
+    </section>
+  </section>
+</section>
