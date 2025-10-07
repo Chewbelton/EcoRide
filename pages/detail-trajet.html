@@ -1,0 +1,176 @@
+<!-- Remettre le menu latéral, à modifier en tant que component plus tard -->
+<section class="left-menu">
+
+  <!-- -- Résumé du trajet -- -->
+  <section class="resume-trajet border-frame">
+    <h3>Résumé du trajet</h3>
+    <div class="trajet-specs">
+      <ul class="liste-resume">
+        <li>De : xx ville</li>
+        <li>Vers : xx ville</li>
+        <li>le : xx date</li>
+        <li>à : xx heure</li>
+      </ul>
+    </div>
+    <a href="#" class="button-class">Nouveau trajet</a>
+  </section>
+
+  <!-- -- Menu de filtres -- -->
+  <section class="filtres border-frame">
+    <h3>Filtrer</h3>
+    <section class="liste-filtres">
+      <div class="filtre-input">
+        <label for="label-eco">Trajet écologique</label>
+        <input type="checkbox" id="label-eco" name="filter" value="label-eco" />
+      </div>
+      <div class="filtre-input">
+        <label for="animaux">Animaux</label>
+        <input type="checkbox" id="animaux" name="filter" value="animaux" />
+      </div>
+      <div class="filtre-input">
+        <label for="fumeur">Fumeur</label>
+        <input type="checkbox" id="fumeur" name="filter" value="fumeur" />
+      </div>
+      <!-- Les éléments suivants correspondent à des nombres, pas des box à cocher -->
+      <div class="filtre-input">
+        <label for="note-mine">Note min. :</label>
+        <input type="number" id="note-min" name="filter" min="0" max="5"/>
+      </div>
+      <div class="filtre-input">
+        <label for="prix-max">Prix max. : </label>
+        <input type="number" id="prix-max" name="filter" min="0"/>
+      </div>
+      <div class="filtre-input">
+        <label for="duree-max">Durée max. : </label>
+        <input type="number" id="duree-max" name="filter" min="0"/>
+      </div>
+    </section>
+    <a href="#" class="button-class">Filtrer</a>
+  </section>
+</section>
+
+
+<!-- Détail trajet -->
+<!-- Informations sur le conducteur et le véhicule -->
+<section class="trajet-specifics">
+  <h2>Informations conducteur</h2>
+  <section class="specifics-driver-vehicule">
+    <div class="specifics-info-driver">
+      <div class="pp-driver">
+        <img src="../src/assets/images/pp-driver.jpg">
+      </div>
+      <div class="detail-driver">
+        <p class="driver-name">Jeanne RENAULT</p>
+        <p>Note : 4.5 / 5</p>
+        <p>Avis : 12 avis</p>
+      </div>
+    </div>
+    <div class="info-vehicule">
+      <p><strong>Détails du véhicule</strong></p>
+      <p>Modèle - Marque - Type carburant</p>
+      <p>Préférences : OK pour les animaux</p>
+    </div>
+    <div class="label-eco-square">
+      <div class="pastille-eco-square">
+        <p>Trajet ECO</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Détail de la durée, adresse et heures de départ/arrivée -->
+  <section class="specifics-destination-horaires">
+    <h3>Détail du trajet</h3>
+    <div class="overview-place-duree">
+      <p class="places-dispo">Places disponibles : xx places</p>
+      <p class="temps-duree-totale">Durée : xxhxx / xx km</p>
+    </div>
+    <div class="infos-destination">
+      <div class="detail-depart-arrivee">
+        <div class="overview-adresse">
+          <p><strong>Départ : </strong>162 avenue Paul Vaillant Couturier, 75014 Paris</p>
+        </div>
+        <div class="overview-horaires">
+          <p><strong>le </strong>21/10/25</p>
+          <p><strong>à </strong>8h30</p>
+        </div>
+      </div>
+      <div class="detail-depart-arrivee">
+        <div class="overview-adresse">
+          <p><strong>Arrivée : </strong>Nation, Paris</p>
+        </div>
+        <div class="overview-horaires">
+          <p><strong>le </strong>21/10/25</p>
+          <p><strong>à </strong>14h30</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prix et validation du trajet -->
+  <section class="section-prix-validation">
+    <div class="pastille-prix">
+      <p class="pastille-txt-color">60 €</p>
+    </div>
+    <div class="validation-trajet">
+      <h3>Choisir ce trajet ?</h3>
+      <a href="#" class="button-class">Valider</a>
+    </div>
+  </section>
+</section>
+
+<!-- Avis et commentaire sur le conducteur -->
+<section class="section-avis">
+  <h2>Avis :</h2>
+  <section class="avis-viewport">
+    <section class="commentaire-passagers">
+      <div class="avis-nom-note">
+        <p>Premier COMMENTAIRE</p>
+        <p>Note : x / 5</p>
+      </div>
+      <div class="zone-commentaire">Ceci est mon commentaire ! Il commente la conduite du conducteur.</div>
+    </section>
+
+    <section class="commentaire-passagers">
+      <div class="avis-nom-note">
+        <p>Second COMMENTAIRE</p>
+        <p>Note : x / 5</p>
+      </div>
+      <div class="zone-commentaire">Ceci est mon commentaire ! Il commente la conduite du conducteur.</div>
+    </section>
+    <section class="commentaire-passagers">
+      <div class="avis-nom-note">
+        <p>Prénom NOM</p>
+        <p>Note : x / 5</p>
+      </div>
+      <div class="zone-commentaire">Ceci est mon commentaire ! Il commente la conduite du conducteur.</div>
+    </section>
+    <section class="commentaire-passagers">
+      <div class="avis-nom-note">
+        <p>Prénom NOM</p>
+        <p>Note : x / 5</p>
+      </div>
+      <div class="zone-commentaire">Ceci est mon commentaire ! Il commente la conduite du conducteur.</div>
+    </section>
+    <section class="commentaire-passagers">
+      <div class="avis-nom-note">
+        <p>Prénom NOM</p>
+        <p>Note : x / 5</p>
+      </div>
+      <div class="zone-commentaire">Ceci est mon commentaire ! Il commente la conduite du conducteur.</div>
+    </section>
+    <section class="commentaire-passagers">
+      <div class="avis-nom-note">
+        <p>Ceci n'est PAS le DERNIER</p>
+        <p>Note : x / 5</p>
+      </div>
+      <div class="zone-commentaire">Ceci est mon commentaire ! Il commente la conduite du conducteur.</div>
+    </section>
+    <section class="commentaire-passagers">
+      <div class="avis-nom-note">
+        <p>Dernier COMMENTAIRE</p>
+        <p>Note : x / 5</p>
+      </div>
+      <div class="zone-commentaire">Ceci est mon commentaire ! Il commente la conduite du conducteur.</div>
+    </section>
+  </section>
+</section>

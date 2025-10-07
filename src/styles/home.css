@@ -69,51 +69,41 @@ article {
 
 article h1 {
   font-weight: bold;
-  grid-area: 1 / 5 / 2 / -1;
+  grid-area: 1 / 4 / 2 / -1;
 }
 
 
   /* -- Présentation de l'entreprise -- */
 .company-prez {
   margin: 2rem 0;
-  grid-area: 2 / 5 / 3 / span 4;
+  grid-area: 2 / 4 / 3 / span 6;
   display: flex;
   flex-direction: column;
 }
 
 .img-prez {
   margin-bottom: 3rem;
+  display: inline flex;
+  align-items: flex-start;
 }
 
 .img-prez img {
   width: 100%;
+  height: auto;
 }
 
 /* Caption text */
 .text-prez {
   font-size: 1.6rem;
-  margin-left: -15%;
+  margin-left: 2rem;
   padding-top: 0.8rem;
-  width: 130%;
-  text-align: justify;
-
-  /* hide the txt if too long */
-  /* maybe won't use it after all */
-  overflow: hidden;
-  text-overflow: "...";
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;            
+  width: 100%;
+  text-align: justify;        
 }
 
 .brk-line {
   border: 0.1rem solid var(--primary);
   margin-bottom: 3rem;
-  width: 130%;
-  margin-left: -15%;
-}
-
-article .button-class {
-  grid-area: 3 / 6 / 4 / span 2;
-  justify-self: center;
+  width: 115%;
+  margin-left: -7.5%;
 }

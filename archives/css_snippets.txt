@@ -31,7 +31,10 @@
 
 
 
+
+----------------------------------------------------------
 ---- Carousel code ----
+
   /* -- Gestion du carousel -- */
 .slideshow {
   margin: 2rem 0;
@@ -124,3 +127,18 @@
   from {opacity: 0.8}
   to {opacity: 1}
 }
+
+
+
+
+
+-----------------------------------------------------------
+---- Hide text if too long ----
+
+  /* hide the txt if too long */
+  /* maybe won't use it after all */
+  overflow: hidden;
+  text-overflow: "...";
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;    
