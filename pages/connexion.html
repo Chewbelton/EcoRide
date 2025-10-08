@@ -1,23 +1,25 @@
-<section class="page-connexion-inscription">
-  <h2>Connexion</h2>
-  <div class="fenetre-identifiants green-border-box">
-    <div class="zone-saisie column-flex-containers identifiant">
+<section class="small-central-content">
+  <h2 class="main-page-h2">Connexion</h2>
+  <div class="grid-connexion green-border-box">
+    <div class="zone-saisie column-flex-containers connexion-id">
       <label for="login" class="secondary-text">Identifiant</label>
-      <div class="container-input"><input type="email" name="login" id="login" placeholder="monemail@email.fr" required></div>
+      <div class="container-input">
+        <input type="email" name="login" id="login" placeholder="monemail@email.fr" required>
+      </div>
     </div>
-    <div class="zone-saisie column-flex-containers motdepasse">
+    <div class="zone-saisie column-flex-containers connexion-mdp">
       <label for="password" class="secondary-text">Mot de passe</label>
-      <div class="container-input"><input type="password" name="password" id="password" placeholder="mon-mot-de-passe" required></div>
+      <div class="container-input">
+        <input type="password" name="password" id="password" placeholder="mon-mot-de-passe" required>
+      </div>
     </div>
-    <div class="valider-connexion">
-      <a href="#" class="button-class">Connexion</a>
-    </div>
+    <button type="submit" class="center-containers-child button-class">Connexion</button>
   </div>
   <div class="mdp-oublie">
-    <a href="#" class="secondary-text">Mot de passe oublié ? Cliquez ici.</a>
+    <a href="#" class="secondary-text text-link">Mot de passe oublié ? Cliquez ici.</a>
   </div>
   <div class="brk-line"></div>
   <div class="creer-mon-compte">
-    <a href="#">Vous n'avez pas de compte ? Cliquez ici pour en créer un.</a>
+    <a href="/inscription" class="text-link">Vous n'avez pas de compte ? Cliquez ici pour en créer un.</a>
   </div>
 </section>

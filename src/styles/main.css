@@ -29,8 +29,10 @@ html {
 }
 
 
-/* _______________________________________ */
-/* _____ Structure en grille globale _____ */
+/* __________________________ */
+/* _____ Positionnement _____ */
+
+/* Grille */
 body {
   display: grid;
   grid-template-rows:auto 1fr auto;
@@ -49,40 +51,35 @@ main {
   grid-template-columns: repeat(12, 1fr);
 }
 
+.medium-central-content {
+  grid-column: 5 / span 4;
+}
+
+.small-central-content {
+  grid-column: 6 / span 2;
+}
+
 footer {
   grid-row: 3 / 4;
 }
-
-
-/* __________________________ */
-/* _____ Positionnement _____ */
-
-.center-containers-child {
-  /* Pour les éléments centrés verticalement et horizontalement dans leur parent */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.column-flex-containers {
-  /* Pour les éléments en colonne */
-  display: flex;
-  flex-direction: column;
-}
-
 
 /* ______________________________ */
 /* _____ text general style _____ */
 
 /* Font et color */
-h1, h2, h3, .secondary-text, p, li, .nav-text, div, input, a, a:visited {
-  /* Pour assurer d'overrider certaines propriétés de text par défaut qui supplantaient le style apposé à html */
+/* Problèmes de preset properties qui overide les valeurs indiquées dans html ; listing des éléments individuellement pour gérer la police, couleur et font-size */
+
+h1, h2, h3, button, .secondary-text, p, span, li, .nav-text, div, input, a, a:visited {
   font-family: 'Quattrocento Sans', Arial, sans-serif;
   color: var(--dark);
 }
 
 .kalam-special {
   font-family: Kalam, Arial, sans-serif;
+}
+
+.material-symbols-outlined {
+  color: var(--dark);
 }
 
 
@@ -100,6 +97,9 @@ h2 {
   font-size: 2.6rem;
 }
 
+.main-page-h2 {
+  margin: 4rem 0;
+}
 
 h3 {
   font-size: 2rem;
@@ -114,13 +114,28 @@ a {
   text-decoration: none;
 }
 
-p, li, .nav-text, div, input, a {
+p, button, li, .nav-text, div, input, a {
   font-size: 1.6rem;
 }
 
 .bold {
   font-weight: bold;
 }
+
+.italic {
+  font-style: italic;
+}
+
+.text-link:hover {
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.text-link:active {
+  color: var(--background);
+  font-weight: bold;
+}
+
 
 
 /* ______________________________ */
@@ -141,7 +156,16 @@ input, .search-bar button {
   background-color: var(--background);
 }
 
-input:focus {
+input {
+  /* Attention, met la pagaille dans les filtres et les input de recherche de trajet */
+  width: 80%;
+}
+
+.filtre-input input, .choix-trajet input, .driver-or-not input {
+  width: auto;
+}
+
+input:focus, button {
   outline: none;
 }
 
@@ -151,6 +175,28 @@ input:focus {
   padding: 1rem 1.5rem;
   margin: 1rem 0;
   border-radius: 0.5rem;
+}
+
+/* Layout */
+.center-containers-child {
+  /* Pour les éléments centrés verticalement et horizontalement dans leur parent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-flex-containers {
+  /* Pour les éléments en colonne */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.inline-info {
+  width: 100%;
+  margin-top: 0.5rem;
+  display: inline flex;
+  justify-content: space-between;
 }
 
 
@@ -165,22 +211,17 @@ input:focus {
 .search-bar {
   /* Couleur et forme de la barre de recherche + centrer le texte */
   background-color: var(--background);
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
 
-.search-bar p:active {
+.search-bar img:active {
   background-color: var(--primary);
   border-radius: 1rem;
 }
 
 .search-bar input[type=text] {
   /* Pour éviter le débordement de l'input recherche */
-  width: 80%;
   text-align: center;
 }
 
@@ -189,28 +230,22 @@ input:focus {
   opacity: 50%;
 }
 
-
-/* __________________________________________ */
-/* _____ Informations sur le conducteur _____ */
-.info-driver {
-  display: inline flex;
-  align-items: center;
-}
-
-.info-driver img {
-  margin-right: 2rem;
-}
-
 /* __________________________________________ */
 /* _____ Bouttons et autres "pastilles" _____ */
 
 /* Button class */
 .button-class {
   /* Aspect général du boutton */
-  color: var(--secondary);
   background-color: var(--primary);
   padding: 1rem 1.5rem;
+  border: none; /* pour overrider la bordure des balises button preset */
   border-radius: 0.5rem;
+  justify-self: center;
+}
+
+.button-class:hover {
+  font-weight: bold;
+  box-shadow: 0 0 0.5rem var(--primary);
 }
 
 .button-class:active {
@@ -219,11 +254,11 @@ input:focus {
   background-color: var(--secondary);
 }
 
-.button-class:hover {
-  font-weight: bold;
-  box-shadow: 0 0 0.5rem var(--primary);
+.structure-bouttons-icone {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-
 
 /* Pastilles */
 
@@ -257,12 +292,7 @@ input:focus {
 /* _____ Contacts page _____ */
 
 .page-contact {
-  grid-column: 5 / span 4;
   justify-content: flex-start;
-}
-
-.page-contact h2 {
-  margin: 4rem 0;
 }
 
 /* ___________________________ */
@@ -309,20 +339,15 @@ header img {
   width: 4rem;
   height: auto;
   margin: 1rem 2rem;
-  border-radius: 4rem;
+  border-radius: 2rem;
 }
 
 
-  /* -- header search bar -- */
-#header-search button {
-  width: 1.6rem;
-  height: 1.6rem;
-}
-
-#header-search p {
-  font-size: 1.6rem; /* besoin de le garder pour override la taille par défaut de la loupe */
+.header-search-loupe {
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
   padding: 0.2rem;
-  border-radius: 1rem;
 }
 
   /* -- navigation bar -- */
@@ -406,18 +431,12 @@ footer a {
   border-radius: 0.5rem;
 }
 
-.resume-trajet {
-  margin-bottom: 4rem;
-  display: grid;
-}
-
 .trajet-specs {
   margin: 1rem 0 1rem 1.5rem;
 }
 
-.resume-trajet .button-class, .filtres .button-class {
+.filtres .button-class {
   margin-top: 1rem;
-  justify-self: center;
 }
 
 .filtres {
@@ -429,11 +448,12 @@ footer a {
 }
 
 .liste-filtres label {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 .filtre-input {
   padding: 0.5rem 0;
+  display: inline flex;
 }
 
 input[type="number"] {
@@ -499,13 +519,13 @@ input[type="number"] {
   height: 2.6rem;
 }
 
-#hero-search input, #hero-search p {
+#hero-search input {
   font-size: 2.6rem;
 }
 
-#hero-search p {
+#hero-search img {
   padding: 0.6rem;
-  border-radius: 3rem;
+  border-radius: 1.8rem;
 }
 
 /* -- main article -- */
@@ -573,11 +593,6 @@ article h1 {
   margin-bottom: 1.5rem;
 }
 
-.choix-retour {
-  text-align: left;
-}
-
-
   /* -- Liste de covoit disponibles --  */
 .liste-covoit {
   width: 40%;
@@ -591,6 +606,16 @@ article h1 {
 
 
     /* -- infos driver -- */
+.info-driver {
+  display: inline flex;
+  align-items: center;
+}
+
+.info-driver img {
+  margin-right: 2rem;
+}
+
+
 .grid-info-driver {
   grid-area: 1 / 1 / 2 / 2;
 }
@@ -614,13 +639,6 @@ article h1 {
   grid-area: 2 / 1 / 3 / 3;
 }
 
-.overview-place-duree {
-  width: 100%;
-  margin-top: 0.5rem;
-  display: inline flex;
-  justify-content: space-between;
-}
-
 .detail-depart-arrivee {
   margin-top: 1.5rem;
   padding: 1rem;
@@ -630,7 +648,6 @@ article h1 {
 }
 
 .overview-horaires {
-  /* margin-left: 4.5rem; */
   display: inline flex;
 }
 
@@ -665,7 +682,6 @@ article h1 {
 
 /* ---- Section conducteur + trajet + validation prix ---- */
 .trajet-specifics {
-  grid-column: 5 / span 4;
   width: 100%;
 }
 
@@ -759,26 +775,14 @@ article h1 {
 /* ________________________________________________________________________________________________ */
 /* ________________________________________________________________________________________________ */
 
-                                /* CONNEXION */
+                                /* CONNEXION et INSCRIPTION */
 /* ________________________________________________________________________________________________ */
 /* ________________________________________________________________________________________________ */
 
 
-
-.page-connexion-inscription {
-  grid-column: 6 / 8;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.page-connexion-inscription h2 {
-  margin: 4rem 0;
-}
-
-
-  /* -- Zone de saisie des identifiants -- */
-.fenetre-identifiants {
-  width: 100%;
+/* Connexion (main code) */
+/* -- Zone de saisie des identifiants -- */
+.grid-connexion {
   display: grid;
   grid-template-rows: 2fr 2fr 1fr;
 }
@@ -791,28 +795,172 @@ article h1 {
   font-style: italic;
 }
 
-.identifiant {
+.connexion-id {
   grid-row: 1 / 2;
 }
 
-.motdepasse {
+.connexion-mdp {
   grid-row: 2 / 3;
 }
 
-.valider-connexion {
-  grid-row: 3 / 4;
+.justify-button-valid {
   justify-self: center;
   align-self: center;
 }
 
-  /* -- Liens mot de passe oublié ou création de compte -- */
+.connexion-valider {
+  grid-row: 3 / 4;
+}
 
-.page-connexion-inscription a:hover {
+
+/* Inscription (secondary code) */
+
+.grid-inscription {
+  display: grid;
+  grid-template-rows: 2fr 2fr 2fr 1fr;
+}
+
+.pseudo {
+  grid-row: 1 / 2;
+}
+
+.inscription-id {
+  grid-row: 2 /3;
+}
+
+.inscription-mdp {
+  grid-row: 3 / 4;
+}
+
+.inscription-valider {
+  grid-row: 4 / 5;
+}
+
+
+/* ________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________ */
+
+                                /* COMPTE UTILISATEUR */
+/* ________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________ */
+
+/* Informations personnelles */
+.account-info-grid {
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, auto);
+  gap: 1rem;
+  align-items: center;
+}
+
+.account-pseudo {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+
+.account-mail {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.account-edit-icon {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* Driver or not */
+
+.driver-or-not {
+  width: 100%;
+  display: inline flex;
+}
+
+.driver-or-not label {
+  margin-right: 1rem;
+}
+
+/* Informations véhicule */
+
+.informations-vehicule-title {
+  width: 100%;
+  margin: 4rem 0 2rem 0;
+  display: inline flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.account-vehicule-grid {
+  display: grid;
+  grid-template-rows: 1fr auto / repeat(2, auto);
+  gap: 1rem;
+}
+
+.vehicule-name {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.liste-vehicule-specs {
+  grid-area: 2 / 1 / 3 / 2;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.liste-vehicule-specs p {
+  padding-bottom: 0.5rem;
+}
+
+.account-delete-icon {
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+
+/* Gestion boutons icone */
+
+.icon-button-class {
+  background-color: var(--primary);
+  padding: 0.5rem;
+  border: none; /* pour overrider la bordure des balises button preset */
+  border-radius: 0.5rem;
+}
+
+.icon-button-class:hover {
+  box-shadow: 0 0 1rem var(--primary);
+}
+
+.icon-button-class:active {
+  box-shadow: none;
+  color: var(--background);
+  background-color: var(--secondary);
+}
+
+
+/* Suppression du compte */
+
+.warning {
   color: var(--secondary);
   font-weight: bold;
 }
 
-.page-connexion-inscription a:active {
-  color: var(--background);
-  font-weight: bold;
+.delete-account .button-class {
+  margin: 1rem 0 4rem 0;
+}
+
+/* ________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________ */
+
+                                /* Page 404 */
+/* ________________________________________________________________________________________________ */
+/* ________________________________________________________________________________________________ */
+
+.page-404 {
+  margin-top: 4rem;
+  grid-column: 5 / 9;
+}
+
+.page-404 h1 {
+  margin-bottom: 4rem;
 }

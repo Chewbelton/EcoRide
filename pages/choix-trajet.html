@@ -1,24 +1,10 @@
 <!-- ---- Menu latéral ---- -->
 <section class="left-menu column-flex-containers">
 
-  <!-- -- Résumé du trajet -- -->
-  <section class="resume-trajet border-frame">
-    <h3>Résumé du trajet</h3>
-    <div class="trajet-specs">
-      <ul class="liste-resume">
-        <li>De : xx ville</li>
-        <li>Vers : xx ville</li>
-        <li>le : xx date</li>
-        <li>à : xx heure</li>
-      </ul>
-    </div>
-    <a href="#" class="button-class">Nouveau trajet</a>
-  </section>
-
   <!-- -- Menu de filtres -- -->
   <section class="filtres border-frame">
     <h3>Filtrer</h3>
-    <section class="liste-filtres">
+    <section class="liste-filtres column-flex-containers">
       <div class="filtre-input">
         <label for="label-eco">Trajet écologique</label>
         <input type="checkbox" id="label-eco" name="filter" value="label-eco" />
@@ -46,7 +32,7 @@
         <input type="number" id="duree-max" name="filter" min="0"/>
       </div>
     </section>
-    <a href="#" class="button-class">Filtrer</a>
+    <button type="submit" class="center-containers-child button-class">Filtrer</button>
   </section>
 </section>
 
@@ -57,34 +43,15 @@
     <h2>Où allez-vous ?</h2>
     <!-- Voyage aller -->
     <div class="voyage-aller">
-      <div class="depart container-input">
+      <div class="container-input">
         <input type="text" id="ville-depart-aller" name="ville-depart-aller" placeholder="Départ : ..."/>
         <input type="date" id="date-depart-aller" name="date-depart-aller"/>
         <input type="time" id="heure-depart-aller" name="heure-depart-aller"/>
       </div>
-      <div class="arrivee container-input">
+      <div class="container-input">
         <input type="text" id="ville-arrivee-aller" name="ville-arrivee-aller" placeholder="Arrivée : ..."/>
         <input type="date" id="date-arrivee-aller" name="date-arrivee-aller"/>
         <input type="time" id="heure-arrivee-aller" name="heure-arrivee-aller"/>
-      </div>
-    </div>
-    <br>
-    <!-- Voir D:\Cours de code\Studi\2 - Cours - Full-stack\1 - Front-end\JavaScript\ExoJS\Projet_JS pour la gestion des champs optionnels -->
-    <div class="choix-retour ">
-      <label for="choix-retour">Aller-retour ?</label>
-      <input type="checkbox" id="choix-retour" name="choix-retour"/>
-    </div>
-    <!-- Voyage retour, si choisi par l'utilisateur -->
-    <div class="voyage-retour">
-      <div class="depart container-input">
-        <input type="text" id="ville-depart-retour" name="ville-depart-retour" placeholder="Départ : ..."/>
-        <input type="date" id="date-depart-retour" name="date-depart-retour"/>
-        <input type="time" id="heure-depart-retour" name="heure-depart-retour"/>
-      </div>
-      <div class="arrivee container-input">
-        <input type="text" id="ville-arrivee-retour" name="ville-arrivee-retour" placeholder="Arrivée : ..."/>
-        <input type="date" id="date-arrivee-retour" name="date-arrivee-retour"/>
-        <input type="time" id="heure-arrivee-retour" name="heure-arrivee-retour"/>
       </div>
     </div>
 
@@ -113,7 +80,7 @@
       </div>
       <div class="overview-detail-trajet">
         <h3>Trajet</h3>
-        <div class="overview-place-duree">
+        <div class="inline-info">
           <p class="places-dispo">Places disponibles : xx places</p>
           <p class="temps-duree-totale">Durée : xxhxx / xx km</p>
         </div>

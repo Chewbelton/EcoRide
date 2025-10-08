@@ -1,24 +1,10 @@
-<!-- Remettre le menu latéral, à modifier en tant que component plus tard -->
+<!-- ---- Menu latéral ---- -->
 <section class="left-menu column-flex-containers">
-
-  <!-- -- Résumé du trajet -- -->
-  <section class="resume-trajet border-frame">
-    <h3>Résumé du trajet</h3>
-    <div class="trajet-specs">
-      <ul class="liste-resume">
-        <li>De : xx ville</li>
-        <li>Vers : xx ville</li>
-        <li>le : xx date</li>
-        <li>à : xx heure</li>
-      </ul>
-    </div>
-    <a href="#" class="button-class">Nouveau trajet</a>
-  </section>
 
   <!-- -- Menu de filtres -- -->
   <section class="filtres border-frame">
     <h3>Filtrer</h3>
-    <section class="liste-filtres">
+    <section class="liste-filtres column-flex-containers">
       <div class="filtre-input">
         <label for="label-eco">Trajet écologique</label>
         <input type="checkbox" id="label-eco" name="filter" value="label-eco" />
@@ -31,7 +17,8 @@
         <label for="fumeur">Fumeur</label>
         <input type="checkbox" id="fumeur" name="filter" value="fumeur" />
       </div>
-      <!-- Les éléments suivants correspondent à des nombres, pas des box à cocher -->
+      <!-- The following boxes are numbers to chose.
+      Use the input ID to limit the size of the input box -->
       <div class="filtre-input">
         <label for="note-mine">Note min. :</label>
         <input type="number" id="note-min" name="filter" min="0" max="5"/>
@@ -49,11 +36,10 @@
   </section>
 </section>
 
-
 <!-- Détail trajet -->
 <!-- Informations sur le conducteur et le véhicule -->
-<section class="trajet-specifics column-flex-containers">
-  <h2>Informations conducteur</h2>
+<section class="medium-central-content column-flex-containers">
+  <h2 class="main-page-h2">Informations conducteur</h2>
   <section class="specifics-driver-vehicule">
     <div class="info-driver">
       <div>
@@ -80,7 +66,7 @@
   <!-- Détail de la durée, adresse et heures de départ/arrivée -->
   <section class="green-border-box">
     <h3>Trajet</h3>
-    <div class="overview-place-duree">
+    <div class="inline-info">
       <p class="places-dispo">Places disponibles : xx places</p>
       <p class="temps-duree-totale">Durée : xxhxx / xx km</p>
     </div>
@@ -113,7 +99,7 @@
     </div>
     <div class="validation-trajet column-flex-containers">
       <h3>Choisir ce trajet ?</h3>
-      <a href="#" class="button-class">Valider</a>
+      <button type="submit" class="center-containers-child button-class">Valider</button>
     </div>
   </section>
 </section>
