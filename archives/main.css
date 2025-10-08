@@ -1,0 +1,171 @@
+/* ---- Universal ---- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: rgb(115, 226, 167);
+  --secondary: rgb(24, 104, 70);
+  --secondary-avis: rgba(24, 104, 70, 0.25);
+  --background: rgb(215, 242, 187);
+  --background-avis: rgba(215, 242, 187, 0.33);
+  --dark: rgb(19, 57, 31);
+}
+
+html {
+  color: var(--dark);
+  font-size: 10px;
+  font-family: 'Quattrocento Sans', Arial, sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-rows:auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+header {
+  grid-row: 1 / 2;
+}
+
+main {
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+footer {
+  grid-row: 3 / 4;
+}
+
+/* -- text general style -- */
+
+h1, h2 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+
+h2 {
+  font-size: 2.6rem;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+a {
+  color: var(--dark);
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+p, li, .nav-text, div, input  {
+  font-size: 1.6rem;
+}
+
+
+/* -- Search bar properties -- */
+/* --- Shared properties ---- */
+.search-form {
+  justify-self: center;
+}
+
+.search-bar {
+  background-color: var(--background);
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.search-bar input, .search-bar button {
+  border: none;
+  background-color: var(--background);
+}
+
+.search-bar button {
+  display: flex;
+}
+
+.search-bar p {
+  justify-self: center;
+  align-self: center;
+}
+
+.search-bar p:active {
+  background-color: var(--primary);
+  border-radius: 1rem;
+}
+
+.search-bar input[type=text] {
+  width: 80%;
+  text-align: center;
+}
+
+.search-bar input[type=text]:focus {
+  outline: none;
+}
+
+.search-bar-text {
+  font-style: italic;
+  opacity: 50%;
+}
+
+
+/* -- button class -- */
+.button-class {
+  color: var(--secondary);
+  background-color: var(--primary);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.button-class:active {
+  box-shadow: none;
+  color: var(--background);
+  background-color: var(--secondary);
+}
+
+.button-class:hover {
+  font-weight: bold;
+  box-shadow: 0 0 0.5rem var(--primary);
+}
+
+/* -- contacts page -- */
+
+.page-contact {
+  grid-column: 5 / span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.page-contact h2 {
+  margin: 4rem 0;
+}
+
+.mail-contact {
+  font-weight: bold;
+}
+
+
+/*  -- Other elements -- */
+
+.brk-line {
+  border: 0.1rem solid var(--primary);
+  margin-bottom: 3rem;
+  width: 115%;
+  margin-left: -7.5%;
+}

@@ -1,0 +1,275 @@
+/* ---- Menu latéral déjà fait dans "menu-latéral.css" ---- */
+
+/* ---- Section conducteur + trajet + validation prix ---- */
+.trajet-specifics {
+  grid-column: 5 / span 4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.trajet-specifics h2 {
+  margin: 2rem 0;
+}
+
+  /* -- Infos conducteur et véhicule -- */
+.specifics-driver-vehicule {
+  width: 100%;
+  margin-bottom: 4rem;
+  display: inline flex;
+  justify-content: space-between;
+}
+
+.specifics-info-driver {
+  display: inline flex;
+  align-items: center;
+}
+
+.info-vehicule {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.label-eco-square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pastille-eco-square {
+  color: var(--secondary);
+  background-color: var(--primary);
+  width: 8rem;
+  height: 8rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pastille-eco-square p {
+  font-family: Kalam, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+  /* -- Info sur le trajet -- */
+.specifics-destination-horaires {
+  padding: 4rem;
+  border: 3px solid var(--primary);
+  border-radius: 5px;
+}
+
+.specifics-destination-horaires h3 {
+  margin-bottom: 1rem;
+}
+
+.specifics-destination-horaires .detail-depart-arrivee {
+  margin-top: 3rem;
+}
+
+
+  /* -- Section prix validation -- */
+.section-prix-validation {
+  margin: 4rem;
+  display: inline flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.validation-trajet {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+
+/* ---- Section commentaire des passagers ---- */
+
+.section-avis {
+  max-height: 79.6rem;
+  grid-column: 11 / -1;
+  background-color: var(--background-avis);
+  padding: 3rem 2rem;
+}
+
+.section-avis h2 {
+  margin-bottom: 2rem;
+}
+
+.avis-viewport {
+  height: 96%;
+  overflow: scroll;
+}
+
+    /* -- commentaires -- */
+.commentaire-passagers {
+  width: 100%;
+  margin-bottom: 4rem;
+  border-left: 1px solid var(--dark);
+  border-bottom: 1px solid var(--dark);
+  display: grid;
+  grid-template-rows: 1fr auto ;
+}
+
+.avis-nom-note {
+  grid-row: 1 / 2;
+  display: inline flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.zone-commentaire {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--secondary-avis);
+  font-style: italic;
+}
+
+
+
+/* ---- Menu latéral déjà fait dans "menu-latéral.css" ---- */
+
+/* ---- Section conducteur + trajet + validation prix ---- */
+.trajet-specifics {
+  grid-column: 5 / span 4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.trajet-specifics h2 {
+  margin: 2rem 0;
+}
+
+  /* -- Infos conducteur et véhicule -- */
+.specifics-driver-vehicule {
+  width: 100%;
+  margin-bottom: 4rem;
+  display: inline flex;
+  justify-content: space-between;
+}
+
+.specifics-info-driver {
+  display: inline flex;
+  align-items: center;
+}
+
+.info-vehicule {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.label-eco-square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pastille-eco-square {
+  color: var(--secondary);
+  background-color: var(--primary);
+  width: 8rem;
+  height: 8rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pastille-eco-square p {
+  font-family: Kalam, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+  /* -- Info sur le trajet -- */
+.specifics-destination-horaires {
+  padding: 4rem;
+  border: 3px solid var(--primary);
+  border-radius: 5px;
+}
+
+.specifics-destination-horaires h3 {
+  margin-bottom: 1rem;
+}
+
+.specifics-destination-horaires .detail-depart-arrivee {
+  margin-top: 3rem;
+}
+
+
+  /* -- Section prix validation -- */
+.section-prix-validation {
+  margin: 4rem;
+  display: inline flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.validation-trajet {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+
+/* ---- Section commentaire des passagers ---- */
+
+.section-avis {
+  max-height: 79.6rem;
+  grid-column: 11 / -1;
+  background-color: var(--background-avis);
+  padding: 3rem 2rem;
+}
+
+.section-avis h2 {
+  margin-bottom: 2rem;
+}
+
+.avis-viewport {
+  height: 96%;
+  overflow: scroll;
+}
+
+    /* -- commentaires -- */
+.commentaire-passagers {
+  width: 100%;
+  margin-bottom: 4rem;
+  border-left: 1px solid var(--dark);
+  border-bottom: 1px solid var(--dark);
+  display: grid;
+  grid-template-rows: 1fr auto ;
+}
+
+.avis-nom-note {
+  grid-row: 1 / 2;
+  display: inline flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.zone-commentaire {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--secondary-avis);
+  font-style: italic;
+}

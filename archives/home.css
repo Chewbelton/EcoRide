@@ -100,10 +100,3 @@ article h1 {
   width: 100%;
   text-align: justify;        
 }
-
-.brk-line {
-  border: 0.1rem solid var(--primary);
-  margin-bottom: 3rem;
-  width: 115%;
-  margin-left: -7.5%;
-}

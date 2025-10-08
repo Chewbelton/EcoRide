@@ -1,0 +1,70 @@
+Polices :
+	- h1 : uniquement "À propos d'EcoRide"
+	- h2 : titre header, titre "Covoiturage", titre "info conducteur", titre "Connexion"
+		-> font-weight normale, size 26, margin: 2rem 0;
+
+	- h3 : notamment pour les menus et les sous-titres dans des conteneurs
+		->police 20, font-weight normale, pas de margin (elle est appliquée sur les autres éléments
+
+	- main police : 16px, tout basic
+
+	- small police : 14px
+		-> concerne le footer et (pour l'instant) "identifiant" et "mot de passe" sur la page de connexion
+_______________________________________________
+
+Couleur de police : tout en dark, SAUF
+	- header
+	- boutons
+	- "pastilles" eco label et prix
+
+FAIT
+
+_______________________________________________
+
+Bordures : 
+	border: 2px solid primary,
+	padding: 2rem
+	border-radius: 5px
+
+FAIT
+
+_______________________________________________
+
+Input box :
+	background-color: var(--background);
+  	padding: 1rem 1.5rem;
+  	margin: 1rem 0;
+  	border-radius: 0.5rem;
+
+FAIT
+
+_______________________________________________
+
+Autres choses à uniformiser :
+	- label "Trajet ECO"
+		-> en faire un carré identique en toute circonstance
+		-> FAIT
+
+	- la zone "Trajet" dans "Covoiturage" et "Détail du trajet" dans "détail-trajet"
+		-> utiliser strictement le même code, et utiliser "trajet" dans les deux cas. Ce sont les mêmes informations, donc y'a pas de raison
+		-> FAIT
+
+	- les outlines d'input à enlever
+		-> FAIT
+
+	- les brk-line (normalement c'est déjà fait)
+	- les "display flex" ou "grid"
+		-> relever les structures qui se ressemblent, et les rassembler au maximum dans des classes uniques.
+
+
+_______________________________________________
+
+Zone conseils : 
+
+	- Attention aux grilles !!! Faire attention à ne pas mettre les positionnement en grille dans la classe qui correspond à l'esthétique d'un élément, mais dans une classe à part spécifique pour le positionnement.
+
+	- Il vaut mieux avoir plusieurs classes pour un seul objet, mais un code css épuré, que des classes uniques pour chaque objet mais un code css qui se répète.
+
+
+
+	

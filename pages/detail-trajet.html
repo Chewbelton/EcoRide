@@ -1,5 +1,5 @@
 <!-- Remettre le menu latéral, à modifier en tant que component plus tard -->
-<section class="left-menu">
+<section class="left-menu column-flex-containers">
 
   <!-- -- Résumé du trajet -- -->
   <section class="resume-trajet border-frame">
@@ -52,55 +52,55 @@
 
 <!-- Détail trajet -->
 <!-- Informations sur le conducteur et le véhicule -->
-<section class="trajet-specifics">
+<section class="trajet-specifics column-flex-containers">
   <h2>Informations conducteur</h2>
   <section class="specifics-driver-vehicule">
-    <div class="specifics-info-driver">
-      <div class="pp-driver">
-        <img src="../src/assets/images/pp-driver.jpg">
+    <div class="info-driver">
+      <div>
+        <img class="photo-price-frame" src="../src/assets/images/pp-driver.jpg">
       </div>
-      <div class="detail-driver">
-        <p class="driver-name">Jeanne RENAULT</p>
+      <div class="detail-driver column-flex-containers">
+        <p class="secondary-color bold">Jeanne RENAULT</p>
         <p>Note : 4.5 / 5</p>
         <p>Avis : 12 avis</p>
       </div>
     </div>
-    <div class="info-vehicule">
+    <div class="info-vehicule column-flex-containers">
       <p><strong>Détails du véhicule</strong></p>
       <p>Modèle - Marque - Type carburant</p>
       <p>Préférences : OK pour les animaux</p>
     </div>
-    <div class="label-eco-square">
-      <div class="pastille-eco-square">
-        <p>Trajet ECO</p>
+    <div class="center-containers-child">
+      <div class="price-label-container center-containers-child label-eco-frame">
+        <h3 class="price-label-text kalam-special">Trajet ECO</h3>
       </div>
     </div>
   </section>
 
   <!-- Détail de la durée, adresse et heures de départ/arrivée -->
-  <section class="specifics-destination-horaires">
-    <h3>Détail du trajet</h3>
+  <section class="green-border-box">
+    <h3>Trajet</h3>
     <div class="overview-place-duree">
       <p class="places-dispo">Places disponibles : xx places</p>
       <p class="temps-duree-totale">Durée : xxhxx / xx km</p>
     </div>
-    <div class="infos-destination">
+    <div class="column-flex-containers">
       <div class="detail-depart-arrivee">
         <div class="overview-adresse">
-          <p><strong>Départ : </strong>162 avenue Paul Vaillant Couturier, 75014 Paris</p>
+          <p><span class="bold">Départ : </span>162 avenue Paul Vaillant Couturier, 75014 Paris</p>
         </div>
         <div class="overview-horaires">
-          <p><strong>le </strong>21/10/25</p>
-          <p><strong>à </strong>8h30</p>
+          <p><span class="bold">le </span>21/10/25</p>
+          <p><span class="bold">à </span>8h30</p>
         </div>
       </div>
       <div class="detail-depart-arrivee">
         <div class="overview-adresse">
-          <p><strong>Arrivée : </strong>Nation, Paris</p>
+          <p><span class="bold">Arrivée : </span>Nation, Paris</p>
         </div>
         <div class="overview-horaires">
-          <p><strong>le </strong>21/10/25</p>
-          <p><strong>à </strong>14h30</p>
+          <p><span class="bold">le </span>21/10/25</p>
+          <p><span class="bold">à </span>14h30</p>
         </div>
       </div>
     </div>
@@ -108,10 +108,10 @@
 
   <!-- Prix et validation du trajet -->
   <section class="section-prix-validation">
-    <div class="pastille-prix">
-      <p class="pastille-txt-color">60 €</p>
+    <div class="photo-price-frame price-label-container center-containers-child">
+      <h3 class="price-label-text">60 €</h3>
     </div>
-    <div class="validation-trajet">
+    <div class="validation-trajet column-flex-containers">
       <h3>Choisir ce trajet ?</h3>
       <a href="#" class="button-class">Valider</a>
     </div>
@@ -139,7 +139,7 @@
     </section>
     <section class="commentaire-passagers">
       <div class="avis-nom-note">
-        <p>Prénom NOM</p>
+        <p>Ceci-est-un-très-long-prénom ETNOMDEFAMILLE</p>
         <p>Note : x / 5</p>
       </div>
       <div class="zone-commentaire">Ceci est mon commentaire ! Il commente la conduite du conducteur.</div>
