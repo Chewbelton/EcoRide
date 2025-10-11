@@ -29,3 +29,9 @@ Notes sur les ratés :
     -> Constat : ça fait bouger TOUTE la ligne, pas juste les éléments nav, donc ça doit être un problème dû aux colonnes peut-être ?
     -> Autre curiosité, avec certaines solutions, le element::after ne se met pas par dessus/dessous, mais simplement en dessous... bref. incompréhensible.
     
+
+_______________________________________________
+
+-> Checker la pertinence des grilles, notamment sur les forms d'inscription/connexion, et voir si je peux faire différemment
+
+-> Utiliser des modales pour les fenêtres ponctuelles ! Ça permet d'afficher une fenêtre par dessus une autre, comme une pop-up en gros. Idéal pour la connexion/déconnexion, notamment.
