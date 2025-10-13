@@ -8,10 +8,9 @@
 // exemple : $font-family-sans-serif: nomPolice; (très utile ça)
 // on verra plus tard pour ces modifications. À termes, alléger le code ; mais pour l'instant faut avancer
 
-@use "../../node_modules/bootstrap/scss/bootstrap" as *;
-
 html,body {
-  height: 100%; margin: 0px; padding: 0px; }
+  height: 100%; margin: 0px; padding: 0px; 
+}
 
 #navbar {
   margin-bottom:0; }
@@ -56,6 +55,9 @@ html,body {
 
 .panel {
   border:none; }
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 
 // Then add additional custom code here

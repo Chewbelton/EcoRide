@@ -1,6 +1,6 @@
-@use 'custom';
+@import 'custom';
 
-@use '../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css' as *;
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css' ;
 
 
 
@@ -15,6 +15,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  line-height: 1.15;
 }
 
 :root {
@@ -61,10 +62,6 @@ main {
   grid-column: 5 / span 4;
 }
 
-.small-central-content {
-  grid-column: 6 / span 2;
-}
-
 footer {
   grid-row: 3 / 4;
 }
@@ -96,11 +93,13 @@ h1, h2 {
 
 h1 {
   font-size: 3.5rem;
+  margin: 0;
 }
 
 
 h2 {
   font-size: 2.6rem;
+  margin: 0;
 }
 
 .main-page-h2 {
@@ -110,6 +109,7 @@ h2 {
 h3 {
   font-size: 2rem;
   font-weight: 300;
+  margin: 0;
 }
 
 .secondary-text {
@@ -120,7 +120,11 @@ a {
   text-decoration: none;
 }
 
-p, button, li, .nav-text, div, input, a {
+p {
+  margin: 0;
+}
+
+p, button, li, .nav-text, div, input, a, .form-control {
   font-size: 1.6rem;
 }
 
@@ -143,6 +147,7 @@ p, button, li, .nav-text, div, input, a {
 }
 
 .warning-text {
+  margin-bottom: 1rem;
   color: var(--warning);
   font-weight: bold;
 }
@@ -164,14 +169,15 @@ p, button, li, .nav-text, div, input, a {
 
 
 /* Zones input */
-input, .search-bar button {
+input, .search-bar button, .form-control {
   border: none;
   background-color: var(--background);
 }
 
+
 input {
   /* Attention, met la pagaille dans les filtres et les input de recherche de trajet */
-  width: 80%;
+  width: 100%;
 }
 
 .filtre-input input, .choix-trajet input, .driver-or-not input {
@@ -213,55 +219,6 @@ input:focus, button {
 }
 
 
-/* ___________________ */
-/* _____ Tooltip _____ */
-
- /* Tooltip container */
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 100%;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-
-  /* Position the tooltip text */
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
-
-  /* Fade in tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-/* Tooltip arrow */
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-} 
-
 
 /* _________________________________ */
 /* _____ Search bar properties _____ */
@@ -269,7 +226,6 @@ input:focus, button {
 .search-form {
   justify-self: center;
 }
-
 
 .search-bar {
   /* Couleur et forme de la barre de recherche + centrer le texte */
@@ -306,7 +262,7 @@ input:focus, button {
   justify-self: center;
 }
 
-.button-class:hover, .photo-button-class:hover {
+.button-class:hover:enabled, .photo-button-class:hover {
   font-weight: bold;
   box-shadow: 0 0 0.5rem var(--primary);
 }
@@ -323,14 +279,15 @@ input:focus, button {
   align-items: center;
 }
 
-.warning-button:hover {
-  background-color: var(--warning);
-  box-shadow: 0 0 1rem var(--warning);
-}
-
 .button-class:disabled {
   opacity: 0.5;
 }
+
+.warning-button:hover {
+  background-color: var(--warning);
+  box-shadow: 0 0 1rem var(--warning) !important;
+}
+
 
 /* Pastilles */
 
@@ -429,7 +386,7 @@ nav {
 }
 
 nav ul {
- /*  margin: 0; */
+  margin: 0;
   list-style-type: none;
   width: 100%;
   display: inline flex;
@@ -573,9 +530,8 @@ input[type="number"] {
   height: 20rem;
   width: 50rem;
   justify-self: center;
+  align-self: center;
   align-items: center;
-  position: relative;
-  top: 6.5rem;
 }
 
 .hero-text .main-title {
@@ -672,7 +628,7 @@ article h1 {
 
   /* -- Liste de covoit disponibles --  */
 .liste-covoit {
-  width: 40%;
+  width: 50%;
 }
 
 .covoit-dispo {
@@ -731,6 +687,7 @@ article h1 {
 
 .detail-driver {
   height: 100%;
+  margin: 2rem;
   justify-content: space-around;
 }
 
@@ -911,17 +868,6 @@ article h1 {
 }
 
 
-/* Validation des champs */
-
-.container-input:has(input.is-valid) {
-  box-shadow: 0 0 1rem var(--primary);
-}
-
-.container-input:has(input.is-invalid) {
-  box-shadow: 0 0 0.5rem var(--warning);
-}
-
-
 /* ________________________________________________________________________________________________ */
 /* ________________________________________________________________________________________________ */
 
@@ -1016,7 +962,7 @@ article h1 {
 /* Suppression du compte */
 
 .delete-account .button-class {
-  margin: 1rem 0 4rem 0;
+  margin: 2rem 0 4rem 0;
 }
 
 /* ________________________________________________________________________________________________ */

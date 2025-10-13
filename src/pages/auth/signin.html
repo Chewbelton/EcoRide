@@ -1,22 +1,22 @@
-<section class="small-central-content">
+<section class="medium-central-content">
   <h2 class="main-page-h2">Connexion</h2>
-  <div class="green-border-box">
-    <div class="zone-saisie column-flex-containers">
+
+  <!-- Section formulaire -->
+  <form class="green-border-box">
+    <div class="zone-saisie">
       <label for="mail" class="secondary-text">Identifiant</label>
-      <div class="container-input">
-        <input type="email" name="mail" id="mail" placeholder="monemail@email.fr" required>
-      </div>
+      <input class="container-input" type="email" name="mail" id="mail" placeholder="monemail@email.fr" required>
     </div>
-    <div class="zone-saisie column-flex-containers">
+    <div class="zone-saisie">
       <label for="password" class="secondary-text">Mot de passe</label>
-      <div class="container-input">
-        <input type="password" name="password" id="password" placeholder="mon-mot-de-passe" required>
-      </div>
+      <input class="container-input" type="password" name="password" id="password" placeholder="mon-mot-de-passe" required>
     </div>
     <div class="center-containers-child">
-      <button type="button" class="button-class">Connexion</button>
+      <button type="button" class="button-class" id="bouttonSignIn">Connexion</button>
     </div>
-  </div>
+  </form>
+
+  <!-- Section mdp oublié et redirection vers la page d'inscription -->
   <div class="mdp-oublie">
     <a href="#" class="secondary-text text-link">Mot de passe oublié ? Cliquez ici.</a>
   </div>

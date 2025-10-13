@@ -1,39 +1,29 @@
-<section class="small-central-content">
+<section class="medium-central-content">
   <h2 class="main-page-h2">Inscription</h2>
-  <form>
-    <div class="green-border-box">
-      <div class="zone-saisie column-flex-containers">
-        <label for="pseudo" class="secondary-text">Pseudo</label>
-        <div class="container-input">
-          <input type="text" name="pseudo" id="pseudo" placeholder="MonPseudo" required>
-        </div>
+  <div class="container">
+    <form class="green-border-box">
+      <div class="zone-saisie">
+        <label for="pseudoInput">Pseudo</label>
+        <input type="text" class="form-control container-input" id="pseudoInput" placeholder="Votre pseudo" name="Pseudo"> 
       </div>
-      <div class="zone-saisie column-flex-containers">
-        <label for="mail" class="secondary-text">Email</label>
-        <div class="container-input">
-          <input type="email" name="mail" id="mail" placeholder="monemail@email.fr" required>
-        </div>
+      <div class="zone-saisie">
+        <label for="emailInput">Email</label>
+        <input type="email" class="form-control container-input" id="emailInput" placeholder="test@mail.fr" name="Email"> 
       </div>
-      <div class="zone-saisie column-flex-containers">
-        <label for="password" class="secondary-text">Mot de passe</label>
-        <div class="container-input tooltip">
-          <input type="password" name="password" id="password" placeholder="mon-mot-de-passe" required>
-          <span class="tooltiptext">Le mot de passe doit contenir au moins 8 caractères, dont : 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial</span>
-        </div>
+      <div class="zone-saisie">
+        <label for="passwordInput">Mot de passe</label>
+        <input type="password" class="form-control container-input" id="passwordInput" placeholder="m0tDe-P455E" name="Password">
+        <div class="invalid-feedback">Le mot de passe doit contenir : 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</div>
       </div>
-      <div class="zone-saisie column-flex-containers">
-        <label for="verify-password" class="secondary-text">Confirmer votre mot de passe</label>
-        <div class="container-input">
-          <input type="password" name="verify-password" id="verify-password" required>
+      <div class="zone-saisie">
+        <label for="validatePasswordInput">Confirmez votre mot de passe</label>
+        <input type="password" class="form-control container-input" id="validatePasswordInput" name="PasswordConfirm">
         </div>
-      </div>
       <div class="center-containers-child">
-        <button type="button" class="button-class" id="boutton-validation-inscription">Inscription</button>
+        <button type="button" class="button-class" id="bouttonSignUp">Inscription</button>
       </div>
+    </form>
+    <div class="creer-mon-compte">
+        <a href="/connexion" class="text-link">Vous avez déjà un compte ? Cliquez ici pour vous connecter.</a>
     </div>
-  </form>
-  <div class="brk-line"></div>
-  <div class="creer-mon-compte">
-    <a href="/connexion" class="text-link">Vous avez déjà un compte ? Cliquez ici pour vous connecter.</a>
-  </div>
 </section>
