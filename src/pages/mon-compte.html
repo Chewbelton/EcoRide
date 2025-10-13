@@ -2,8 +2,9 @@
   <h2 class="main-page-h2">Mon compte</h2>
   <!-- Photo + nom (cliquer sur la photo pour changer) -->
   <section class="info-driver">
-    <div>
+    <div class="modify-photo">
       <img class="photo-price-frame" src="../src/assets/images/pp-driver.jpg">
+      <button type="button" class="titre-image photo-button-class" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">Modifier</button>
     </div>
     <p class="secondary-color bold">Jeanne RENAULT</p>
   </section>
@@ -20,7 +21,7 @@
         <p><span>E-mail : </span><span class="secondary-color bold">franckdu67@email.fr</span></p>
       </div>
       <div class="account-edit-icon">
-        <button type="button" class="icon-button-class material-symbols-outlined">edit_square</button>
+        <button type="button" class="bi bi-pencil-square"></button>
       </div>
     </div>
   </section>
@@ -65,10 +66,10 @@
         </div>
       </div>
       <div class="account-edit-icon">
-        <button type="button" class="icon-button-class material-symbols-outlined">edit_square</button>
+        <button type="button" class="bi bi-pencil-square"></button>
       </div>
       <div class="account-delete-icon">
-        <button type="button" class="icon-button-class material-symbols-outlined">delete</button>
+        <button type="button" class="bi bi-trash"></button>
       </div>
     </div>
   </section>
@@ -82,3 +83,33 @@
     </div>
   </section>
 </section>
+
+
+<!-- Code pour la modale -->
+
+<!-- Modal edition -->
+<div class="modal fade" id="EditionPhotoModal" tabindex="-1" aria-labelledby="EditionPhotoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="EditionPhotoModalLabel">Photo de profil</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="NamePhotoInput" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="NamePhotoInput" placeholder="Lasagnes à la bolognese" name="Titre"> 
+          </div>
+          <div class="mb-3">
+            <label for="ImageInput" class="form-label">Image</label>
+            <input type="file" class="form-control" id="ImageInput"  name="Image">
+          </div>
+          <div class="text-center">
+              <button type="button" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

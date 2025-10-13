@@ -16,8 +16,9 @@
       </div>
       <div class="zone-saisie column-flex-containers">
         <label for="password" class="secondary-text">Mot de passe</label>
-        <div class="container-input">
+        <div class="container-input tooltip">
           <input type="password" name="password" id="password" placeholder="mon-mot-de-passe" required>
+          <span class="tooltiptext">Le mot de passe doit contenir au moins 8 caractères, dont : 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial</span>
         </div>
       </div>
       <div class="zone-saisie column-flex-containers">
@@ -25,9 +26,6 @@
         <div class="container-input">
           <input type="password" name="verify-password" id="verify-password" required>
         </div>
-      </div>
-      <div>
-        <p id="inscription-warning" class="secondary-text warning-text">Le mot de passe doit contenir minimum 8 caractères, une majuscule et une minuscule, ainsi qu'un caractère spécial.</p>
       </div>
       <div class="center-containers-child">
         <button type="button" class="button-class" id="boutton-validation-inscription">Inscription</button>

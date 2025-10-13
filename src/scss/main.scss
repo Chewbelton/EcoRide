@@ -1,3 +1,9 @@
+@use 'custom';
+
+@use '../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css' as *;
+
+
+
 /* ________________________________________________________________________________________________ */
 /* ________________________________________________________________________________________________ */
 
@@ -22,12 +28,12 @@
   --main-border: 0.3rem solid var(--primary);
   --border-dark: 0.1rem solid var(--dark);
   --border-primary: 0.15rem solid var(--primary);
+  --warning: rgb(218, 73, 73);
 }
 
 html {
   font-size: 10px;
 }
-
 
 /* __________________________ */
 /* _____ Positionnement _____ */
@@ -137,7 +143,7 @@ p, button, li, .nav-text, div, input, a {
 }
 
 .warning-text {
-  color: red;
+  color: var(--warning);
   font-weight: bold;
 }
 
@@ -207,6 +213,56 @@ input:focus, button {
 }
 
 
+/* ___________________ */
+/* _____ Tooltip _____ */
+
+ /* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+} 
+
+
 /* _________________________________ */
 /* _____ Search bar properties _____ */
 
@@ -241,7 +297,7 @@ input:focus, button {
 /* _____ Bouttons et autres "pastilles" _____ */
 
 /* Button class */
-.button-class {
+.button-class, .photo-button-class {
   /* Aspect général du boutton */
   background-color: var(--primary);
   padding: 1rem 1.5rem;
@@ -250,12 +306,12 @@ input:focus, button {
   justify-self: center;
 }
 
-.button-class:hover {
+.button-class:hover, .photo-button-class:hover {
   font-weight: bold;
   box-shadow: 0 0 0.5rem var(--primary);
 }
 
-.button-class:active {
+.button-class:active, .photo-button-class:active {
   box-shadow: none;
   color: var(--background);
   background-color: var(--secondary);
@@ -268,7 +324,8 @@ input:focus, button {
 }
 
 .warning-button:hover {
-  box-shadow: 0 0 1rem red;
+  background-color: var(--warning);
+  box-shadow: 0 0 1rem var(--warning);
 }
 
 .button-class:disabled {
@@ -372,6 +429,7 @@ nav {
 }
 
 nav ul {
+ /*  margin: 0; */
   list-style-type: none;
   width: 100%;
   display: inline flex;
@@ -497,22 +555,27 @@ input[type="number"] {
   height: 39rem;
   grid-column: 1 / -1;
   display: grid;
-  grid-template-rows: 6.5rem 3fr 1fr;
-  grid-template-columns: repeat(8, 1fr);
+  position: relative;
 }
 
 .green-filter {
   background-color: var(--secondary);
   opacity: 25%;
-  grid-area: 1 / 1 / 5 / 9 ;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #hero-banner .hero-text {
   z-index: 5;
-  grid-area: 2 / 4 / 4 / 6;
   height: 20rem;
   width: 50rem;
+  justify-self: center;
   align-items: center;
+  position: relative;
+  top: 6.5rem;
 }
 
 .hero-text .main-title {
@@ -577,7 +640,6 @@ article h1 {
 /* Caption text */
 .text-prez {
   margin-left: 2rem;
-  padding-top: 0.8rem;
   width: 100%;
   text-align: justify;        
 }
@@ -626,9 +688,41 @@ article h1 {
   align-items: center;
 }
 
-.info-driver img {
+    /* Modification de la photo de profil */
+
+.modify-photo{
   margin-right: 2rem;
+  position:relative;
+  &:hover{
+    .titre-image {
+      opacity: 1;
+    }
+
+    img{
+      filter: brightness(0.3);
+    }
+  }
+
+  img{
+    transition: all 0.3s;
+  }
+
+  .photo-button-class {
+    font-size: 1.4rem;
+    padding: 0.5rem;
+  }
+  
+  .titre-image{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s;
+  }
 }
+
+
 
 
 .grid-info-driver {
@@ -800,6 +894,7 @@ article h1 {
 
 .zone-saisie {
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .zone-saisie label {
@@ -823,7 +918,7 @@ article h1 {
 }
 
 .container-input:has(input.is-invalid) {
-  box-shadow: 0 0 0.5rem red;
+  box-shadow: 0 0 0.5rem var(--warning);
 }
 
 
@@ -843,13 +938,6 @@ article h1 {
 .account-info {
   margin: 2rem 0;
 }
-
-.account-edit-icon {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-}
-
 
 /* Driver or not */
 
@@ -880,30 +968,48 @@ article h1 {
   padding-bottom: 0.5rem;
 }
 
+/* Gestion boutons icone */
+
+.account-edit-icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
 .account-delete-icon {
   position: absolute;
   top: 7rem;
   right: 2rem;
 }
 
-
-/* Gestion boutons icone */
-
-.icon-button-class {
+.bi {
+  font-size: 2rem;
+  line-height: 0;
   background-color: var(--primary);
   padding: 0.5rem;
   border: none; /* pour overrider la bordure des balises button preset */
   border-radius: 0.5rem;
 }
 
-.icon-button-class:hover {
+.bi:hover {
   box-shadow: 0 0 1rem var(--primary);
 }
 
-.icon-button-class:active {
+.bi:active {
   box-shadow: none;
   color: var(--background);
   background-color: var(--secondary);
+}
+
+.bi-trash:hover  {
+  background-color: var(--warning);
+  box-shadow: 0 0 1rem var(--warning);
+}
+
+.bi-trash:active  {
+  box-shadow: none;
+  color: var(--background);
+  background-color: var(--warning);
 }
 
 
