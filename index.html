@@ -23,10 +23,10 @@
       <h2>EcoRide</h2>
     </a>
     <form class="search-form">
-      <section id="header-search" class="search-bar structure-bouttons-icone">
-        <input type="text" placeholder="Rechercher..." class="search-bar-text">
-        <button type="button" class="center-containers-child">
-          <img class="header-search-loupe" src="../src/assets/icons/search-transparent.svg">
+      <section class="search-bar structure-bouttons-icone">
+        <input type="text" class="search-bar-text" placeholder="Rechercher...">
+        <button type="button" class="center-containers-child header-search-container">
+          <i class="bi bi-search"></i>
         </button>
       </section>
     </form>
@@ -35,9 +35,10 @@
         <ul>
           <li class="nav-text"><a href="/">Accueil</a></li>
           <li class="nav-text"><a href="/choix-trajet">Covoiturages</a></li>
-          <li class="nav-text"><a href="/mon-compte">Mon compte</a></li>
+          <li class="nav-text" data-show="connected"><a href="/mon-compte">Mon compte</a></li>
           <li class="nav-text"><a href="/contacts">Contacts</a></li>
-          <li class="nav-text"><a href="/connexion">Connexion</a></li>
+          <li class="nav-text" data-show="disconnected"><a href="/connexion">Connexion</a></li>
+          <li class="nav-text" data-show="connected"><button id="signoutBoutton">Déconnexion</button></li>
         </ul>
     </nav>
     </section>
@@ -59,6 +60,7 @@
   </footer>
 
   <!-- script JavaScript -->
+  <script src="./src/js/script.js"></script>
   <script type="module" src="./src/routes/router.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>

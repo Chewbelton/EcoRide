@@ -2,7 +2,7 @@ import Route from "./route.js";
 import { allRoutes, websiteName } from "./allRoutes.js";
 
 // Création d'une route pour la page 404 (page introuvable)
-const route404 = new Route("404", "Page introuvable", "./src/pages/404.html");
+const route404 = new Route("404", "Page introuvable", "./src/pages/404.html", []);
 
 // Fonction pour récupérer la route correspondant à une URL donnée
 const getRouteByUrl = (url) => {
@@ -26,6 +26,25 @@ const LoadContentPage = async () => {
   const path = window.location.pathname;
   // Récupération de l'URL actuelle
   const actualRoute = getRouteByUrl(path);
+
+  // vérifier les droits d'accès à la page, et rejeter l'utiliser s'il n'a pas les bons droits (l'envoyer sur l'accueil)
+  const allRightsArrays = actualRoute.authorize;
+  
+  if(allRightsArrays.length > 0) {
+    if(allRightsArrays.includes("disconnected")) {
+      if(isConnected()) {
+        window.alert("Vous n'avez pas les droits d'accès à cette page. Vous allez être redirigé vers l'acceuil.");
+        window.location.replace("/");
+      } 
+    } else {
+      const roleUser = getRole();
+      if(!allRightsArrays.includes(roleUser)) {
+        window.alert("Vous n'avez pas les droits d'accès à cette page. Vous allez être redirigé vers l'acceuil.");
+        window.location.replace("/");
+      }
+    }
+  }
+
   // Récupération du contenu HTML de la route
   const html = await fetch(actualRoute.pathHtml).then((data) => data.text());
   // Ajout du contenu HTML à l'élément avec l'ID "main-page"
@@ -44,6 +63,9 @@ const LoadContentPage = async () => {
 
   // Changement du titre de la page
   document.title = actualRoute.title + " - " + websiteName;
+
+  // afficher et masquer les éléments en fonction du rôle
+  showAndHideForRole();
 };
 
 // Fonction pour gérer les événements de routage (clic sur les liens)

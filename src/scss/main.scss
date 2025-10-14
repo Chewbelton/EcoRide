@@ -196,6 +196,11 @@ input:focus, button {
   border-radius: 0.5rem;
 }
 
+.sign-in-up {
+  border: 0.2rem solid var(--background);
+  background-color: transparent;
+}
+
 /* Layout */
 .center-containers-child {
   /* Pour les éléments centrés verticalement et horizontalement dans leur parent */
@@ -232,11 +237,6 @@ input:focus, button {
   background-color: var(--background);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-}
-
-.search-bar img:active {
-  background-color: var(--primary);
-  border-radius: 1rem;
 }
 
 .search-bar input[type=text] {
@@ -372,12 +372,39 @@ header img {
 }
 
 
-.header-search-loupe {
-  width: 2rem;
-  height: 2rem;
-  margin: 0;
-  padding: 0.2rem;
+
+.header-search-container {
+  font-size: 1.4rem;
+  width: auto;
+  padding: 0.6rem;
 }
+
+.header-search-container:active {
+  background-color: var(--primary);
+  border-radius: 1.5rem;
+}
+
+.header-search-container .bi {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+
+.hero-search-container {
+  width: auto;
+  padding: 2rem;
+}
+
+.hero-search-container:active {
+  background-color: var(--primary);
+  border-radius: 2rem;
+}
+
+.hero-search-container .bi {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
 
   /* -- navigation bar -- */
 nav {
@@ -399,7 +426,12 @@ nav ul {
   align-items: center;
 }
 
-.nav-text a {
+#signoutBoutton {
+  border: none;
+  background-color: transparent;
+}
+
+.nav-text a, #signoutBoutton {
   color: var(--secondary);
   text-align: center;
   padding: 0.5rem;
@@ -407,13 +439,13 @@ nav ul {
 } 
 
 
+.nav-text a:hover, #signoutBoutton:hover {
 /* Utilisation de text-stroke pour "bold" le texte sans faire bouger le layout */
-.nav-text a:hover {
   -webkit-text-stroke: 0.04rem var(--secondary);
   border-bottom: 0.2rem solid var(--secondary);
 }
 
-.nav-text a:active {
+.nav-text a:active, #signoutBoutton:active {
   color: var(--background);
   -webkit-text-stroke: 0.04rem var(--background);
   border-bottom: 0.2rem solid var(--background);
@@ -928,7 +960,7 @@ article h1 {
   right: 2rem;
 }
 
-.bi {
+.bi-pencil-square, .bi-trash {
   font-size: 2rem;
   line-height: 0;
   background-color: var(--primary);
@@ -937,11 +969,11 @@ article h1 {
   border-radius: 0.5rem;
 }
 
-.bi:hover {
+.bi-pencil-square:hover, .bi-trash:hover {
   box-shadow: 0 0 1rem var(--primary);
 }
 
-.bi:active {
+.bi-pencil-square:active, .bi-trash:active {
   box-shadow: none;
   color: var(--background);
   background-color: var(--secondary);

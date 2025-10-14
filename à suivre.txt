@@ -35,3 +35,9 @@ _______________________________________________
 -> Checker la pertinence des grilles, notamment sur les forms d'inscription/connexion, et voir si je peux faire différemment
 
 -> Utiliser des modales pour les fenêtres ponctuelles ! Ça permet d'afficher une fenêtre par dessus une autre, comme une pop-up en gros. Idéal pour la connexion/déconnexion, notamment.
+
+
+_______________________________________________
+
+
+-> Modifier les icones de loupes, actuellement des icones "img", utiliser les icones bootstrap
