@@ -27,16 +27,27 @@
   </section>
 
   <!-- Section optionnelle conducteur -->
+  <!-- 
+  Comme pour la section suivante, il faudra ajouter data-show="client" au lien "vous êtes conducteurs ?" puisque les utilisateurs s'étant déjà enregistrés n'auront pas besoin de voir ce bouton
+  Et il faudra mettre un boutton "Je ne suis plus conducteur" en bas de page. Mais pas urgent
+  -->
   <div>
     <div class="brk-line"></div>
     <div class="driver-or-not">
       <label for="conducteur">Vous êtes conducteur ?</label>
-      <input type="checkbox" id="conducteur" name="conducteur"/>
+      <button type="button" class="button-class">S'enregistrer</button>
     </div>
   </div>
 
   <!-- Informations sur le(s) véhicule(s) -->  
-  <section data-show="driver" data-show="admin"> <!-- Comment appliquer plusieurs data-attribute.value à un même container ? -->
+  <section>
+    <!-- 
+    WARNING !!!! Ajouter data-show="driver" pour cacher les infos aux utilisateurs non-conducteurs
+    Deuxième point : Comment appliquer plusieurs data-attribute.value à un même container, par exemple pour avoir driver et admin en même temps ?
+    -->
+    <div> <!-- Enregistrer une nouvelle voiture -->
+      <a href="/new-vehicle" class="text-link">Cliquez ici pour enregistrer un nouveau véhicule.</a>
+    </div>
     <div class="informations-vehicule-title">
       <h2>Mes véhicules</h2>
       <button type="button" class="center-containers-child button-class">Ajouter</button>

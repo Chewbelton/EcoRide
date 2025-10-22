@@ -12216,7 +12216,7 @@ input:focus, button {
   border-radius: 0.5rem;
 }
 
-.sign-in-up {
+.white-form-input {
   border: 0.2rem solid var(--background);
   background-color: transparent;
 }
@@ -12872,7 +12872,9 @@ article h1, article .h1 {
 /* Driver or not */
 .driver-or-not {
   width: 100%;
+  margin-bottom: 2rem;
   display: inline flex;
+  align-items: center;
 }
 
 .driver-or-not label {

@@ -76,7 +76,7 @@ class SecurityController extends AbstractController
                 type: "array",
                 items: new OA\Items(
                     type: "string",
-                    example: "ROLE_USER"
+                    example: "connected"
                 )
             )]
         )
@@ -144,7 +144,7 @@ class SecurityController extends AbstractController
                 type: "array",
                 items: new OA\Items(
                     type: "string",
-                    example: "ROLE_USER"
+                    example: "connected"
                 )
             )]
         )

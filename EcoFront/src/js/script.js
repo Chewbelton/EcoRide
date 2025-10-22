@@ -74,7 +74,6 @@ function isConnected(){
 Il existe six rôle :
   - Disconnected (utilisateur non-connecté)
   - Connected (utilisateur connecté ; tous les rôles enfants DOIVENT être connecté pour accéder aux fonctionnalités)
-    - Passenger
     - Driver
     - Employee
     - Admin
@@ -96,11 +95,6 @@ function showAndHideForRole() {
         break;
       case 'connected':
         if(!userConnected) {
-          element.classList.add("d-none");
-        }
-        break;
-      case 'passenger':
-        if(!userConnected || role != 'passenger') {
           element.classList.add("d-none");
         }
         break;

@@ -32,7 +32,7 @@
         <input type="number" id="duree-max" name="filter" min="0"/>
       </div>
     </section>
-    <button type="button" class="center-containers-child button-class">Filtrer</button>
+    <button type="button" class="button-class">Filtrer</button>
   </section>
 </section>
 
@@ -53,6 +53,9 @@
         <input type="date" id="date-arrivee-aller" name="date-arrivee-aller"/>
         <input type="time" id="heure-arrivee-aller" name="heure-arrivee-aller"/>
       </div>
+    </div>
+    <div> <!-- Créer un nouveau trajet covoiturage. Ne proposer cette option que si les utilisateurs ont le role driver (utiliser data-show) -->
+      <a href="/new-trip" class="text-link">Vous êtes conducteurs ? Cliquez ici pour proposer un trajet.</a>
     </div>
 
   </section>
@@ -111,7 +114,7 @@
         </div>
       </div>
       <div class="overview-detail-button">
-        <a href="/detail-trajet" class="button-class">Détails</a>
+        <button type="button" class="button-class">Valider</button>
       </div>
     </section>
   </section>
