@@ -1,10 +1,10 @@
-import Route from "./route.js";
+import Route from "src/routes/route.js";
 
 //Définir ici vos routes
 export const allRoutes = [
     new Route("/", "Accueil", "./src/pages/home.html", []),
-    new Route("/connexion", "Connexion", "./src/pages/auth/signin.html", ["disconnected"], "./src/js/auth/signin.js"),
-    new Route("/inscription", "Inscription", "./src/pages/auth/signup.html", ["disconnected"], "./src/js/auth/signup.js"),
+    new Route("/signin", "Connexion", "./src/pages/auth/signin.html", ["disconnected"], "./src/js/auth/signin.js"),
+    new Route("/signup", "Inscription", "./src/pages/auth/signup.html", ["disconnected"], "./src/js/auth/signup.js"),
     new Route("/contacts", "Contacts", "./src/pages/contacts.html", []),
     new Route("/mon-compte", "Mon compte", "./src/pages/mon-compte.html", ["passenger", "driver", "employee", "admin"]),
     new Route("/choix-trajet", "Covoiturages", "./src/pages/choix-trajet.html", []),

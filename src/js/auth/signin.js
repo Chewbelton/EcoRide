@@ -1,24 +1,49 @@
 const inputEmail = document.getElementById('emailInput');
 const inputPassword = document.getElementById('passwordInput');
 const btnSignIn = document.getElementById('bouttonSignIn');
+const signInForm = document.getElementById('signInForm');
 
 btnSignIn.addEventListener('click', checkCredentials);
 
 function checkCredentials() {
   // Pour l'instant, credentials en "dur" qu'il faudra récupérer plus tard via l'API
 
-  if(inputEmail.value == 'test@email.com' && inputPassword.value == 'Test-123') {
-    inputEmail.classList.add("is-valid");
-    inputPassword.classList.add("is-valid");
-    const token = "tuesconnecteCestLeBonCOOKIE";
-    setToken(token);
+  let dataForm = new FormData(signInForm);
 
-    // ici, on a attribué un rôle par défaut. Ce rôle doit en réalité être déterminé en fonction de l'utilisateur qui se connecte. Ce sera fait plus tard
-    setCookie(roleCookieName, 'admin', 7);
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
 
-    window.location.replace("/"); 
-  } else {
-    inputEmail.classList.add("is-invalid");
-    inputPassword.classList.add("is-invalid");
-  }
+  const raw = JSON.stringify({
+    "username": dataForm.get("Email"),
+    "password": dataForm.get("MotDePasse")
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+
+  fetch(apiUrl+"login", requestOptions)
+    .then(response => {
+      if(response.ok) {
+        return response.json();
+      } else {
+        inputEmail.classList.add("is-invalid");
+        inputPassword.classList.add("is-invalid");
+      }
+    })
+    .then(result => {
+      inputEmail.classList.add("is-valid");
+      inputPassword.classList.add("is-valid");
+
+      const token = result.api_token;
+      setToken(token);
+      setCookie(roleCookieName, result.roles[0], 7);
+
+      window.location.replace("/"); 
+    })
+
+    .catch((error) => console.error(error));
 }

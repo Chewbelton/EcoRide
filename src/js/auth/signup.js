@@ -1,24 +1,26 @@
 //Implémenter le JS de ma page
 
-const inputPseudo = document.getElementById("pseudoInput");
+const inputFirstName = document.getElementById("firstNameInput");
 const inputMail = document.getElementById("emailInput");
 const inputPassword = document.getElementById("passwordInput");
 const inputValidationPassword = document.getElementById("validatePasswordInput");
 const btnValidate = document.getElementById("bouttonSignUp");
+const signUpForm = document.getElementById("signUpForm");
 
-inputPseudo.addEventListener("keyup", validateForm); 
+inputFirstName.addEventListener("keyup", validateForm); 
 inputMail.addEventListener("keyup", validateForm);
 inputPassword.addEventListener("keyup", validateForm);
 inputValidationPassword.addEventListener("keyup", validateForm);
+bouttonSignUp.addEventListener("click", validateRegistration);
 
 //Function permettant de valider tout le formulaire
 function validateForm(){
-  const pseudoOK = validateRequired(inputPseudo);
+  const firstNameOK = validateRequired(inputFirstName);
   const mailOK = validateMail(inputMail);
   const passwordOK = validatePassword(inputPassword);
   const confirmPasswordOK = validateConfirmationPassword(inputPassword, inputValidationPassword);
 
-  if(pseudoOK && mailOK && passwordOK && confirmPasswordOK) {
+  if(firstNameOK && mailOK && passwordOK && confirmPasswordOK) {
     btnValidate.disabled = false;
   } else {
     btnValidate.disabled = true;
@@ -78,3 +80,38 @@ function validateConfirmationPassword(inputPwd, inputConfirmPwd){
     return false;
   }
 }
+
+function validateRegistration() {
+  let dataForm = new FormData(signUpForm);
+
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  const raw = JSON.stringify({
+    "first_name": dataForm.get("Prenom"),
+    "email": dataForm.get("Email"),
+    "password": dataForm.get("MotDePasse")
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+
+  fetch(apiUrl+"registration", requestOptions)
+    .then(response => {
+      if(response.ok) {
+        return response.json();
+      } else {
+        alert("Erreur lors de l'inscription. Un compte existe déjà avec cette adresse mail.");
+      }
+    })
+    .then(result => {
+      alert("Félicitations ! Votre compte est désormais créé. Vous pouvez vous connecter.");
+      document.location.href="/signin";
+    })
+    .catch((error) => console.error(error));
+}
+
