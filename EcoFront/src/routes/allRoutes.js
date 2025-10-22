@@ -9,9 +9,9 @@ export const allRoutes = [
     new Route("/contacts", "Contacts", "./src/pages/contacts.html", []),
 
     /* Création de compte, voiture, covoiturage */
-    new Route("/mon-compte", "Mon compte", "./src/pages/mon-compte.html", ["connected", "driver", "employee", "admin"]),
-    new Route("/new-vehicle", "Mon véhicule", "./src/pages/new-vehicle.html", ["connected", "driver", "employee", "admin"]),
-    new Route("/new-trip", "Créer un trajet", "./src/pages/mon-compte.html", ["connected", "driver", "employee", "admin"]),
+    new Route("/mon-compte", "Mon compte", "./src/pages/user-data/mon-compte.html", ["connected", "driver", "employee", "admin"]),
+    new Route("/new-vehicle", "Mon véhicule", "./src/pages/user-data/new-vehicle.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/new-vehicle.js"),
+    new Route("/new-trip", "Créer un trajet", "./src/pages/user-data/new-trip.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/new-trip.js"),
 
     /* Chercher et valider un trajet */
     new Route("/choix-trajet", "Covoiturages", "./src/pages/choix-trajet.html", []),
