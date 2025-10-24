@@ -4,7 +4,7 @@
   <section class="info-driver">
     <div class="modify-photo">
       <img class="photo-price-frame" src="../src/assets/images/pp-driver.jpg">
-      <button type="button" class="titre-image photo-button-class" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">Modifier</button>
+      <button type="button" class="titre-image photo-button-class" data-bs-toggle="modal" data-bs-target="#EditPhotoModal">Modifier</button>
     </div>
     <p class="secondary-color bold">Jeanne RENAULT</p>
   </section>
@@ -12,17 +12,30 @@
   <!-- Section informations personnelles -->
   <section class="info-personnelles">
     <h3>Mes informations personnelles</h3>
+    <p class="secondary-text italic">Cliquez sur une ligne pour la modifier.</p>
     <div class="green-border-box">
-      <div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="#editPseudoModal">
         <p><span>Pseudo : </span><span class="secondary-color bold">FranckDu67</span></p>
       </div>
-      <div class="account-info"></div>
-      <div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="#editMailModal">
         <p><span>E-mail : </span><span class="secondary-color bold">franckdu67@email.fr</span></p>
       </div>
-      <div class="account-edit-icon">
-        <button type="button" class="bi bi-pencil-square"></button>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="#editPasswordModal">
+        <p><span>Mot de passe : </span><span class="secondary-color bold"> * * * * *</span></p>
       </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="#editAdressModal">
+        <p><span>Adresse : </span><span class="secondary-color bold">1, rue de la Ville, 01234 Ville</span></p>
+      </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="#editPhoneNumberModal">
+        <p><span>Téléphone : </span><span class="secondary-color bold">0602030405</span></p>
+      </div>
+      <div data-bs-toggle="modal" data-bs-target="#editRoleModal">
+        <p><span>Rôle : </span><span class="secondary-color bold">Passager</span></p>
+      </div>
+<!--  À garder, si je trouve comment ignorer les champs vides d'un unique formulaire
+      <div class="account-edit-icon">
+        <button type="button" class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#EditUserInfoModal"></button>
+      </div> -->
     </div>
   </section>
 
@@ -76,9 +89,6 @@
           <p>Non fumeur, OK animaux !</p>
         </div>
       </div>
-      <div class="account-edit-icon">
-        <button type="button" class="bi bi-pencil-square"></button>
-      </div>
       <div class="account-delete-icon">
         <button type="button" class="bi bi-trash"></button>
       </div>
@@ -98,8 +108,8 @@
 
 <!-- Code pour la modale -->
 
-<!-- Modal edition -->
-<div class="modal fade" id="EditionPhotoModal" tabindex="-1" aria-labelledby="EditionPhotoModalLabel" aria-hidden="true">
+<!-- Photo modal -->
+<div class="modal fade" id="EditPhotoModal" tabindex="-1" aria-labelledby="EditionPhotoModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -118,6 +128,132 @@
           </div>
           <div class="text-center">
               <button type="button" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Pseudo modal -->
+<div class="modal fade" id="editPseudoModal" tabindex="-1" aria-labelledby="editPseudoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="editPseudoModalLabel">Modifiez vos informations personnelles</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editPseudoForm">
+          <div class="zone-saisie">
+            <label for="pseudoInput">Pseudo</label>
+            <input type="text" class="form-control container-input white-form-input" id="pseudoInput" name="Pseudo"> 
+          </div>
+          <div class="text-center">
+            <button type="button" class="button-class" id="saveNewPseudoBtn">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Mail modal -->
+<div class="modal fade" id="editMailModal" tabindex="-1" aria-labelledby="editMailModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="editMailModalLabel">Modifiez vos informations personnelles</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editMailForm">
+          <div class="zone-saisie">
+            <label for="emailInput">Email</label>
+            <input type="email" class="form-control container-input white-form-input" id="emailInput" placeholder="test@mail.fr" name="Email"> 
+          </div>
+          <div class="text-center">
+            <button type="button" class="button-class" id="saveNewMailBtn">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mot de passe modal -->
+<div class="modal fade" id="editPasswordModal" tabindex="-1" aria-labelledby="editPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="editPasswordModalLabel">Modifiez vos informations personnelles</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editPasswordForm">
+          <div class="zone-saisie">
+            <label for="passwordInput">Mot de passe</label>
+            <input type="password" class="form-control container-input white-form-input" id="passwordInput" placeholder="m0tDe-P455E" name="MotDePasse">
+            <div class="invalid-feedback">Le mot de passe doit contenir : 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre, 1 caractère spécial</div>
+          </div>
+          <div class="zone-saisie">
+            <label for="validatePasswordInput">Confirmez votre mot de passe</label>
+            <input type="password" class="form-control container-input white-form-input" id="validatePasswordInput" name="PasswordConfirm">
+          </div>
+          <div class="text-center">
+            <button type="button" class="button-class" id="saveNewPasswordBtn">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Adress modal -->
+<div class="modal fade" id="editAdressModal" tabindex="-1" aria-labelledby="editAdressModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="editAdressModalLabel">Modifiez vos informations personnelles</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editAdressForm">
+          <div class="zone-saisie">
+            <label for="adressInput">Adresse</label>
+            <input type="text" class="form-control container-input white-form-input" id="adressInput" placeholder="1 rue de la Ville" name="Adress"> 
+          </div>
+          <div class="zone-saisie">
+            <label for="postalCodeInput">Code postal</label>
+            <input type="text" class="form-control container-input white-form-input" id="postalCodeInput" placeholder="01234 Ville" name="CodePostal"> 
+          </div>
+          <div class="text-center">
+            <button type="button" class="button-class" id="saveNewAdressBtn">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Phone number modal -->
+<div class="modal fade" id="editPhoneNumberModal" tabindex="-1" aria-labelledby="editPhoneNumberModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="editPhoneNumberModalLabel">Modifiez vos informations personnelles</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editPhoneNumberForm">
+          <div class="zone-saisie">
+            <label for="phoneNbrInput">Numéro de téléphone</label>
+            <input type="text" class="form-control container-input white-form-input" id="phoneNbrInput" placeholder="0601020304" name="Telephone"> 
+          </div>
+          <div class="text-center">
+            <button type="button" class="button-class" id="saveNewPhoneBtn">Valider</button>
           </div>
         </form>
       </div>

@@ -17,7 +17,7 @@ btnSaveVehicle.addEventListener("click", saveNewVehicle);
 function validateForm(){
   const modelOK = validateRequired(inputModel);
   const plateNbrOK = validatePlate(inputPlateNbr);
-  const datePlateOK = validateRequired(inputDatePlate); 
+  const datePlateOK = validateDate(inputDatePlate); 
   const fuelOK = validateRequired(inputFuel);
   const colorOK = validateRequired(inputColor);
 
@@ -42,10 +42,25 @@ function validateRequired(input){
 
 function validatePlate(input){
   //Définir mon regex
-  const recentPlateNbr = /^[A-Z]{2}[0-9]{3}[A-Z]{2}$/;
-  const oldPlateNbr = /^[0-9]{3,4}[A-Z]{3}[0-9]{3,4}$/;
+  const recentPlateNbr = /^[A-Z]{2}[\-][0-9]{3}[\-][A-Z]{2}$/;
+  const oldPlateNbr = /^[0-9]{3,4}[\-][A-Z]{3}[\-][0-9]{2,3}$/;
   const userPlate = input.value;
   if(userPlate.match(recentPlateNbr) || userPlate.match(oldPlateNbr)){
+    input.classList.add("is-valid");
+    input.classList.remove("is-invalid"); 
+    return true;
+  } else {
+    input.classList.remove("is-valid");
+    input.classList.add("is-invalid");
+    return false;
+  }
+}
+
+function validateDate(input){
+  //Définir mon regex
+  const emailRegex = /^[0-9]{2}[\-][0-9]{2}[\-][0-9]{4}$/;
+  const mailUser = input.value;
+  if(mailUser.match(emailRegex)){
     input.classList.add("is-valid");
     input.classList.remove("is-invalid"); 
     return true;

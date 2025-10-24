@@ -1,10 +1,37 @@
 <section class="medium-central-content">
   <h2 class="main-page-h2">Inscription</h2>
+  <div class="alreadySignedUp">
+    <a href="/signin" class="text-link">Vous avez déjà un compte ? Cliquez ici pour vous connecter.</a>
+  </div>
   <div class="container">
     <form class="green-border-box" id="signUpForm">
       <div class="zone-saisie">
-        <label for="first_name">Prénom</label>
-        <input type="text" class="form-control container-input white-form-input" id="firstNameInput" placeholder="Votre prénom" name="Prenom"> 
+        <label for="firstNameInput">Prénom</label>
+        <input type="text" class="form-control container-input white-form-input" id="firstNameInput" name="Prenom"> 
+      </div>
+      <div class="zone-saisie">
+        <label for="lastNameInput">Nom</label>
+        <input type="text" class="form-control container-input white-form-input" id="lastNameInput" name="Nom"> 
+      </div>
+      <div class="zone-saisie">
+        <label for="pseudoInput">Pseudo</label>
+        <input type="text" class="form-control container-input white-form-input" id="pseudoInput" name="Pseudo"> 
+      </div>
+      <div class="zone-saisie">
+        <label for="birthDateInput">Date de naissance</label>
+        <input type="text" class="form-control container-input white-form-input" id="birthDateInput" placeholder="JJ-MM-AAAA" name="DateNaissance"> 
+      </div>
+      <div class="zone-saisie">
+        <label for="adressInput">Adresse</label>
+        <input type="text" class="form-control container-input white-form-input" id="adressInput" placeholder="1 rue de la Ville" name="Adress"> 
+      </div>
+      <div class="zone-saisie">
+        <label for="postalCodeInput">Code postal</label>
+        <input type="text" class="form-control container-input white-form-input" id="postalCodeInput" placeholder="01234 Ville" name="CodePostal"> 
+      </div>
+      <div class="zone-saisie">
+        <label for="phoneNbrInput">Numéro de téléphone</label>
+        <input type="text" class="form-control container-input white-form-input" id="phoneNbrInput" placeholder="0601020304" name="Telephone"> 
       </div>
       <div class="zone-saisie">
         <label for="emailInput">Email</label>
@@ -18,12 +45,9 @@
       <div class="zone-saisie">
         <label for="validatePasswordInput">Confirmez votre mot de passe</label>
         <input type="password" class="form-control container-input white-form-input" id="validatePasswordInput" name="PasswordConfirm">
-        </div>
+      </div>
       <div class="center-containers-child">
         <button type="button" class="button-class" id="bouttonSignUp">Inscription</button>
       </div>
     </form>
-    <div>
-        <a href="/signin" class="text-link">Vous avez déjà un compte ? Cliquez ici pour vous connecter.</a>
-    </div>
 </section>

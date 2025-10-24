@@ -51,6 +51,45 @@ class SecurityController extends AbstractController
                     property: "password",
                     type: "string",
                     example: "Test-123"
+                ),
+                new Property(
+                    property: "first_name",
+                    type: "string",
+                    example: "Prenom"
+                ),
+                new Property(
+                    property: "last_name",
+                    type: "string",
+                    example: "Nom"
+                ),
+                new Property(
+                    property: "phone_number",
+                    type: "string",
+                    example: "0102030405"
+                ),
+                new Property(
+                    property: "adress",
+                    type: "string",
+                    example: "1, rue de la Ville"
+                ),
+                new Property(
+                    property: "postal_code",
+                    type: "string",
+                    example: "01234 Ville"
+                ),
+                new Property(
+                    property: "pseudo",
+                    type: "string",
+                    example: "TestPseudo"
+                ),
+                new Property(
+                    property: "birth_date",
+                    type: "string",
+                    example: "01-01-1995"
+                ),
+                new Property(
+                    property: "photo",
+                    type: "blob"
                 )]
             )
         )
@@ -86,6 +125,7 @@ class SecurityController extends AbstractController
     {
         $user = $this->serializer->deserialize($request->getContent(), User::class, 'json');
         $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
+        $user->setCreatedAt(new DateTimeImmutable());
 
         $this->manager->persist($user);
         $this->manager->flush();
@@ -94,7 +134,7 @@ class SecurityController extends AbstractController
             ['user' => $user->getUserIdentifier(),
             'api_token' => $user->getApiToken(),
             'roles' => $user->getRoles()
-            ],
+        ],
             Response::HTTP_CREATED
         );
     }
@@ -175,30 +215,54 @@ class SecurityController extends AbstractController
     )]
     #[OA\Response(
         response: 200,
-        description: "Tous les champs utilisateurs retournés",
+        description: "Tous les champs utilisateurs retournés"
     )]
 
     public function me(): JsonResponse
     {
         $user = $this->getUser();
 
-        $responseData = $this->serializer->serialize($user, 'json');
+        $responseData = $this->serializer->serialize($user, "json");
 
         return new JsonResponse($responseData, Response::HTTP_OK, [], true);
     }
 
   /* Modification de l'objet user */
     #[Route('/account/edit', name: 'update', methods: 'PUT')]
+
+    #[OA\Put(
+        path: "/api/account/edit",
+        summary: "Modifier son compte utilisateur avec l'un ou tous les champs",
+        requestBody: new RequestBody(
+            required: true,
+            description: "Nouvelles données éventuelles de l'utilisateur à mettre à jour",
+            content: new OA\JsonContent(
+                type: "object",
+                properties: [new Property(
+                    property: "first_name",
+                    type: "string",
+                    example: "Nouveau prénom"
+                )]
+            )
+        )
+    )]
+
+    #[OA\Response(
+        response: 204,
+        description: "Utilisateur modifié avec succès"
+    )]
+
     public function edit(Request $request, UserPasswordHasherInterface $passwordHasher): JsonResponse
     {
         $user = $this->serializer->deserialize(
             $request->getContent(),
             User::class,
-            'json',
-            [AbstractNormalizer::OBJECT_TO_POPULATE => $this->getUser()],
+            "json",
+            [AbstractNormalizer::OBJECT_TO_POPULATE => $this->getUser()]
         );
+        $user->setUpdatedAt(new DateTimeImmutable());
 
-        if (isset($request->toArray()['password'])) {
+        if (isset($request->toArray()["password"])) {
             $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
         }
 
