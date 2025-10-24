@@ -5,6 +5,8 @@ const apiUrl = "http://127.0.0.1:8000/api/";
 
 signoutButton.addEventListener("click", signout);
 
+getUserInfo();
+
 // fonction pour récupérer le rôle associé au cookie
 
 function getRole() {
@@ -16,7 +18,7 @@ function getRole() {
 function signout() {
   eraseCookie(tokenCookieName);
   eraseCookie(roleCookieName);
-  window.location.reload();
+  window.location.replace("/");
 }
 
 // fonction pour récupérer le token
@@ -117,13 +119,29 @@ function showAndHideForRole() {
   })
 }
 
+function getUserInfo() {
+  let myHeaders = new Headers();
+  myHeaders.append("X-AUTH-TOKEN", getToken());
 
-// fonction pour vérifier explicitement que tout fonctionne
+  let requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow' 
+  };
 
-/* if(isConnected()) {
-  window.alert("Vous êtes connecté !");
-} else {
-  window.alert("Vous n'êtes pas connectés !");
+  fetch(apiUrl+"account/me", requestOptions)
+  .then(response =>{
+    if(response.ok){
+      return response.json();
+    } else{
+      console.log("Impossible de récupérer les informations utilisateur");
+    }
+  })
+  .then(result => {
+    console.log(result);
+  })
+  .catch(error =>{
+    console.error("erreur lors de la récupération des données utilisateur", error);
+  });
 }
- */
 

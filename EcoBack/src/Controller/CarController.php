@@ -27,7 +27,7 @@ class CarController extends AbstractController
 
 
   /* ____ Creation d'objet ____ */
-    #[Route(name: 'create', methods: 'POST')]
+    #[Route('/create', name: 'create', methods: 'POST')]
     public function create(Request $request) : JsonResponse
     {
     $car = $this->serializer->deserialize(

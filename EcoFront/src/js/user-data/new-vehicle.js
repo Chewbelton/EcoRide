@@ -8,23 +8,23 @@ const vehicleForm = document.getElementById('newVehicleForm');
 
 inputModel.addEventListener("keyup", validateForm); 
 inputPlateNbr.addEventListener("keyup", validateForm);
-inputDatePlate.addEventListener("change", validateForm);
+inputDatePlate.addEventListener("keyup", validateForm);
 inputFuel.addEventListener("keyup", validateForm);
 inputColor.addEventListener("keyup", validateForm);
-btnSaveVehicle.addEventListener("click", validateRegistration);
+btnSaveVehicle.addEventListener("click", saveNewVehicle);
 
 //Function permettant de valider tout le formulaire
 function validateForm(){
   const modelOK = validateRequired(inputModel);
   const plateNbrOK = validatePlate(inputPlateNbr);
-  const datePlateOK = validateDate(inputDatePlate); 
+  const datePlateOK = validateRequired(inputDatePlate); 
   const fuelOK = validateRequired(inputFuel);
   const colorOK = validateRequired(inputColor);
 
   if(modelOK && plateNbrOK && datePlateOK && fuelOK && colorOK) {
-    btnValidate.disabled = false;
+    btnSaveVehicle.disabled = false;
   } else {
-    btnValidate.disabled = true;
+    btnSaveVehicle.disabled = true;
   }
 }
 
@@ -56,25 +56,12 @@ function validatePlate(input){
   }
 }
 
-function validateDate(input) {
-  let selectedDate = new Date(input.value);
-
-  if(!isNaN(selectedDate)) {
-    input.classList.add("is-valid");
-    input.classList.remove("is-invalid"); 
-    return true;
-  } else {
-    input.classList.remove("is-valid");
-    input.classList.add("is-invalid");
-    return false;
-  }
-}
-
 function saveNewVehicle() {
   let dataForm = new FormData(vehicleForm);
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("X-AUTH-TOKEN", getToken());
 
   const raw = JSON.stringify({
     "model": dataForm.get("Model"),
@@ -91,7 +78,7 @@ function saveNewVehicle() {
     redirect: "follow"
   };
 
-  fetch(apiUrl+"saveVehicle", requestOptions)
+  fetch(apiUrl+"car/create", requestOptions)
     .then(response => {
       if(response.ok) {
         return response.json();

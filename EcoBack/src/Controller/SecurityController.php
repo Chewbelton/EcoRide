@@ -50,7 +50,7 @@ class SecurityController extends AbstractController
                 new Property(
                     property: "password",
                     type: "string",
-                    example: "123-password"
+                    example: "Test-123"
                 )]
             )
         )
@@ -118,7 +118,7 @@ class SecurityController extends AbstractController
                 new Property(
                     property: "password",
                     type: "string",
-                    example: "123-password"
+                    example: "Test_123"
                 )]
             )
         )
@@ -167,39 +167,43 @@ class SecurityController extends AbstractController
     }
 
   /* Lecture de l'objet user */
-    #[Route('/account/{id}', name: 'read', methods: 'GET')]
-    public function read(int $id) : JsonResponse
-    {
-    $user = $this->repository->findOneBy(['id' => $id]);
+    #[Route('/account/me', name: 'read', methods: 'GET')]
 
-    if($user) {
+    #[OA\Get(
+        path: "/api/account/me",
+        summary: "Récupérer toutes les informations de l'objet User"
+    )]
+    #[OA\Response(
+        response: 200,
+        description: "Tous les champs utilisateurs retournés",
+    )]
+
+    public function me(): JsonResponse
+    {
+        $user = $this->getUser();
+
         $responseData = $this->serializer->serialize($user, 'json');
+
         return new JsonResponse($responseData, Response::HTTP_OK, [], true);
     }
 
-    return new JsonResponse(null, Response::HTTP_NOT_FOUND);
-    }
-
   /* Modification de l'objet user */
-    #[Route('/{id}', name: 'update', methods: 'PUT')]
-    public function update(int $id, Request $request) : JsonResponse
+    #[Route('/account/edit', name: 'update', methods: 'PUT')]
+    public function edit(Request $request, UserPasswordHasherInterface $passwordHasher): JsonResponse
     {
-    $user = $this->repository->findOneBy(['id' => $id]);
-
-    if($user) {
         $user = $this->serializer->deserialize(
-        $request->getContent(),
-        User::class,
-        'json',
-        [AbstractNormalizer::OBJECT_TO_POPULATE => $user]
+            $request->getContent(),
+            User::class,
+            'json',
+            [AbstractNormalizer::OBJECT_TO_POPULATE => $this->getUser()],
         );
+
+        if (isset($request->toArray()['password'])) {
+            $user->setPassword($passwordHasher->hashPassword($user, $user->getPassword()));
+        }
 
         $this->manager->flush();
 
         return new JsonResponse(null, Response::HTTP_NO_CONTENT);
-    }
-
-    return new JsonResponse(null, Response::HTTP_NOT_FOUND);
-    
     }
 }

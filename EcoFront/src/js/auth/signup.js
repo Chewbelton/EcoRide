@@ -109,7 +109,7 @@ function validateRegistration() {
       }
     })
     .then(result => {
-      alert("Félicitations ! Votre compte est désormais créé. Vous pouvez vous connecter.");
+      alert("Félicitations " + dataForm.get("Prenom") + "! Votre compte est désormais créé. Vous pouvez vous connecter.");
       document.location.href="/signin";
     })
     .catch((error) => console.error(error));
