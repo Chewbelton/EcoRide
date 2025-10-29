@@ -1,9 +1,8 @@
-<!-- ---- Menu latéral ---- -->
-<section class="left-menu column-flex-containers">
-
+<!-- ---- Menu latéral pour grand écran ---- -->
+<section class="visible-filtre-menu column-flex-containers">
   <!-- -- Menu de filtres -- -->
   <section class="filtres border-frame">
-    <h3>Filtrer</h3>
+    <h3 >Filtrer</h3>
     <section class="liste-filtres column-flex-containers">
       <div class="filtre-input">
         <label for="label-eco">Trajet écologique</label>
@@ -36,18 +35,57 @@
   </section>
 </section>
 
+<!-- ---- Menu latéral pour petits écrans ---- -->
+<section class="hidden-filtre-menu column-flex-containers offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <!-- -- Menu de filtres -- -->
+  <section class="filtres border-frame">
+    <h3 >Filtrer</h3>
+    <button id="close-filtre-menu" type="button" class="btn-close" id="close-filtre-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <section class="liste-filtres column-flex-containers">
+      <div class="filtre-input">
+        <label for="label-eco">Trajet écologique</label>
+        <input type="checkbox" id="label-eco" name="filter" value="label-eco" />
+      </div>
+      <div class="filtre-input">
+        <label for="animaux">Animaux</label>
+        <input type="checkbox" id="animaux" name="filter" value="animaux" />
+      </div>
+      <div class="filtre-input">
+        <label for="fumeur">Fumeur</label>
+        <input type="checkbox" id="fumeur" name="filter" value="fumeur" />
+      </div>
+      <!-- The following boxes are numbers to chose.
+      Use the input ID to limit the size of the input box -->
+      <div class="filtre-input">
+        <label for="note-mine">Note min. :</label>
+        <input type="number" id="note-min" name="filter" min="0" max="5"/>
+      </div>
+      <div class="filtre-input">
+        <label for="prix-max">Prix max. : </label>
+        <input type="number" id="prix-max" name="filter" min="0"/>
+      </div>
+      <div class="filtre-input">
+        <label for="duree-max">Durée max. : </label>
+        <input type="number" id="duree-max" name="filter" min="0"/>
+      </div>
+    </section>
+    <button type="button" class="button-class">Filtrer</button>
+  </section>
+</section>
+
+
 <!-- ---- Main trajet view ---- -->
 <section class="main-trajet column-flex-containers">
   <section class="choix-trajet">
     <!-- Les différents input, notamment pour choisir date et heure : https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input -->
     <h2>Où allez-vous ?</h2>
     <div class="recherche-voyage">
-      <div class="container-input">
+      <div class="container-input chose-destination-input">
         <input type="text" id="ville-depart-aller" name="ville-depart-aller" placeholder="Départ : ..."/>
         <input type="date" id="date-depart-aller" name="date-depart-aller"/>
         <input type="time" id="heure-depart-aller" name="heure-depart-aller"/>
       </div>
-      <div class="container-input">
+      <div class="container-input chose-destination-input">
         <input type="text" id="ville-arrivee-aller" name="ville-arrivee-aller" placeholder="Arrivée : ..."/>
         <input type="date" id="date-arrivee-aller" name="date-arrivee-aller"/>
         <input type="time" id="heure-arrivee-aller" name="heure-arrivee-aller"/>
@@ -65,6 +103,7 @@
   <section class="liste-covoit">
     <div class="brk-line"></div>
     <h3>XX trajets correspondent à votre recherche :</h3>
+    <p id="show-filtre-menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Filtrer la recherche</p>
     <!-- Premier covoit exemple -->
     <section class="covoit-dispo green-border-box">
       <div class="info-driver grid-info-driver">
@@ -77,7 +116,7 @@
           <p>Préférences : OK pour les animaux !</p>
         </div>
       </div>
-      <div class="center-containers-child">
+      <div class="center-containers-child overview-label-eco">
         <div class="price-label-container center-containers-child label-eco-frame">
           <h3 class="price-label-text kalam-special">Trajet ECO</h3>
         </div>
@@ -115,7 +154,7 @@
         </div>
       </div>
       <div class="overview-detail-button">
-        <button type="button" class="button-class">Valider</button>
+        <a href="/detail-trajet" class="button-class">Détails</a>
       </div>
     </section>
   </section>

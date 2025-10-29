@@ -20,7 +20,7 @@
   <header>
     <a id="logo" href="/">
       <img src="./src/assets/images/logo.jpg">
-      <h2>EcoRide</h2>
+      <h2 id="header-site-title">EcoRide</h2>
     </a>
     <form class="search-form">
       <section class="search-bar structure-bouttons-icone">
@@ -30,18 +30,23 @@
         </button>
       </section>
     </form>
-    <section id="nav">
-      <nav>
-        <ul>
-          <li class="nav-text"><a href="/">Accueil</a></li>
-          <li class="nav-text"><a href="/choix-trajet">Covoiturages</a></li>
-          <li class="nav-text" data-show="connected"><a href="/mon-compte">Mon compte</a></li>
-          <li class="nav-text"><a href="/contacts">Contacts</a></li>
-          <li class="nav-text" data-show="disconnected"><a href="/signin">Connexion</a></li>
-          <li class="nav-text" data-show="connected"><button id="signoutBoutton">Déconnexion</button></li>
-        </ul>
-    </nav>
-    </section>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" id="nav">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-text"><a href="/">Accueil</a></li>
+              <li class="nav-text"><a href="/choix-trajet">Covoiturage</a></li>
+              <li class="nav-text" data-show="connected"><a href="/mon-compte">Mon compte</a></li>
+              <li class="nav-text"><a href="/contacts">Contacts</a></li>
+              <li class="nav-text" data-show="disconnected"><a href="/signin">Connexion</a></li>
+              <li class="nav-text" data-show="connected"><a id="signoutBoutton">Déconnexion</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
   </header>
   
   <!-- ---- main ---- -->

@@ -1,44 +1,6 @@
-<!-- ---- Menu latéral ---- -->
-<section class="left-menu column-flex-containers">
-
-  <!-- -- Menu de filtres -- -->
-  <section class="filtres border-frame">
-    <h3>Filtrer</h3>
-    <section class="liste-filtres column-flex-containers">
-      <div class="filtre-input">
-        <label for="label-eco">Trajet écologique</label>
-        <input type="checkbox" id="label-eco" name="filter" value="label-eco" />
-      </div>
-      <div class="filtre-input">
-        <label for="animaux">Animaux</label>
-        <input type="checkbox" id="animaux" name="filter" value="animaux" />
-      </div>
-      <div class="filtre-input">
-        <label for="fumeur">Fumeur</label>
-        <input type="checkbox" id="fumeur" name="filter" value="fumeur" />
-      </div>
-      <!-- The following boxes are numbers to chose.
-      Use the input ID to limit the size of the input box -->
-      <div class="filtre-input">
-        <label for="note-mine">Note min. :</label>
-        <input type="number" id="note-min" name="filter" min="0" max="5"/>
-      </div>
-      <div class="filtre-input">
-        <label for="prix-max">Prix max. : </label>
-        <input type="number" id="prix-max" name="filter" min="0"/>
-      </div>
-      <div class="filtre-input">
-        <label for="duree-max">Durée max. : </label>
-        <input type="number" id="duree-max" name="filter" min="0"/>
-      </div>
-    </section>
-    <button type="button" class="button-class">Filtrer</button>
-  </section>
-</section>
-
 <!-- Détail trajet -->
 <!-- Informations sur le conducteur et le véhicule -->
-<section class="medium-central-content column-flex-containers">
+<section class="detail-trajet column-flex-containers">
   <h2 class="main-page-h2">Informations conducteur</h2>
   <section class="specifics-driver-vehicule">
     <div class="info-driver">
@@ -56,7 +18,7 @@
       <p>Modèle - Marque - Type carburant</p>
       <p>Préférences : OK pour les animaux</p>
     </div>
-    <div class="center-containers-child">
+    <div class="center-containers-child" id="eco-label-detail-trajet">
       <div class="price-label-container center-containers-child label-eco-frame">
         <h3 class="price-label-text kalam-special">Trajet ECO</h3>
       </div>
@@ -105,9 +67,9 @@
 </section>
 
 <!-- Avis et commentaire sur le conducteur -->
-<section class="section-avis">
-  <h2>Avis :</h2>
+<section class="section-avis center-containers-child">
   <section class="avis-viewport">
+    <h2>Avis :</h2>
     <section class="commentaire-passagers">
       <div class="avis-nom-note">
         <p>Premier COMMENTAIRE</p>
