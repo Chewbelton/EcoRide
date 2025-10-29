@@ -1,3 +1,5 @@
+
+
 const tokenCookieName = "accesstoken";
 const roleCookieName = "role";
 const signoutButton = document.getElementById('signoutBoutton');
@@ -138,10 +140,13 @@ function getUserInfo() {
     }
   })
   .then(result => {
-    console.log(result);
+    const userInfoArray = [];
+    Object.keys(result).forEach(key => {
+      userInfoArray.push(result[key])
+    })
+    return userInfoArray;
   })
   .catch(error =>{
     console.error("erreur lors de la récupération des données utilisateur", error);
   });
 }
-

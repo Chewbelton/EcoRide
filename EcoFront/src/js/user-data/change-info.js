@@ -347,3 +347,48 @@ function validatePhoneNbr(input) {
     return false;
   }
 }
+
+
+
+// Display les infos de l'utilisateur
+const displayUserName = document.getElementById('displayUserName');
+const displayPseudo = document.getElementById('displayPseudo');
+const displayMail = document.getElementById('displayMail');
+const displayAdress = document.getElementById('displayAdress');
+const displayPhone = document.getElementById('displayPhone');
+
+displayUserInfo();
+
+function displayUserInfo() {
+  let myHeaders = new Headers();
+  myHeaders.append("X-AUTH-TOKEN", getToken());
+
+  let requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow' 
+  };
+
+  fetch(apiUrl+"account/me", requestOptions)
+  .then(response =>{
+    if(response.ok){
+      return response.json();
+    } else{
+      console.log("Impossible de récupérer les informations utilisateur");
+    }
+  })
+  .then(result => {
+    const userInfoArray = [];
+    Object.keys(result).forEach(key => {
+      userInfoArray.push(result[key])
+    })
+    displayUserName.innerHTML = userInfoArray[6] + " " + userInfoArray[5];
+    displayPseudo.innerHTML = userInfoArray[10];
+    displayMail.innerHTML = userInfoArray[1];
+    displayAdress.innerHTML = userInfoArray[9] + ", " + userInfoArray[15];
+    displayPhone.innerHTML = userInfoArray[8].replace(/(\d{2}|\+[3]{2}\d)(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
+  })
+  .catch(error =>{
+    console.error("erreur lors de la récupération des données utilisateur", error);
+  });
+}

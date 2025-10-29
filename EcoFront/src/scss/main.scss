@@ -957,6 +957,28 @@ article h1 {
   cursor: pointer;
 }
 
+.modal-dialog {
+  top: 30%;
+  display: grid;
+}
+
+.modal-body {
+  margin: 2rem 0;
+  display: grid;
+}
+
+.modal-body form {
+  width: 80%;
+  justify-self: center;
+}
+
+/* .modal-body .form-control  */
+
+.modal-body .text-center {
+  margin-top: 3rem;
+}
+
+
 /* Driver or not */
 
 .driver-or-not {
