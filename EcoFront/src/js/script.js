@@ -142,6 +142,7 @@ function getUserInfo() {
     Object.keys(result).forEach(key => {
       userInfoArray.push(result[key])
     })
+    console.log(userInfoArray);
     return userInfoArray;
   })
   .catch(error =>{

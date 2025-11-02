@@ -222,7 +222,7 @@ class SecurityController extends AbstractController
     {
         $user = $this->getUser();
 
-        $responseData = $this->serializer->serialize($user, "json");
+        $responseData = $this->serializer->serialize($user, "json", ['groups' => 'user-info']);
 
         return new JsonResponse($responseData, Response::HTTP_OK, [], true);
     }

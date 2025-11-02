@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+use App\Entity\User;
 use App\Repository\CarRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
@@ -10,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\{JsonResponse, Request, Response};
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -29,19 +31,21 @@ class CarController extends AbstractController
 
   /* ____ Creation d'objet ____ */
     #[Route('/create', name: 'create', methods: 'POST')]
-    public function create(Request $request) : JsonResponse
+    public function create(Request $request, #[CurrentUser] ?User $user) : JsonResponse
     {
     $car = $this->serializer->deserialize(
         $request->getContent(),
         Car::class,
         'json'
     );
+    
     $car->setCreatedAt(new DateTimeImmutable());
+    $car->setUser($user);
 
     $this->manager->persist($car);
     $this->manager->flush();
 
-    $responseData = $this->serializer->serialize($car, 'json');
+    $responseData = $this->serializer->serialize($car, 'json', ['groups' => 'car-creation']);
     $location = $this->urlGenerator->generate(
         'app_api_car_read',
         ['id' => $car->getId()],
@@ -58,7 +62,7 @@ class CarController extends AbstractController
     $car = $this->repository->findOneBy(['id' => $id]);
 
     if($car) {
-        $responseData = $this->serializer->serialize($car, 'json');
+        $responseData = $this->serializer->serialize($car, 'json', ['groups' => 'car-creation']);
         return new JsonResponse($responseData, Response::HTTP_OK, [], true);
     }
 

@@ -3,73 +3,99 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+    #[Groups(["user-info"])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 50)]
     private ?string $last_name = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 50)]
     private ?string $first_name = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 180)]
     private ?string $email = null;
 
     /**
      * @var string The hashed password
      */
+    #[Groups(["user-info"])]
     #[ORM\Column]
     private ?string $password = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 12)]
     private ?string $phone_number = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 255)]
     private ?string $adress = null;
     
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 255)]
     private ?string $postal_code = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $pseudo = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 10)]
     private ?string $birth_date = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(type: Types::BLOB, nullable: true)]
     private $photo = null;
 
     /**
      * @var list<string> The user roles
      */
+    #[Groups(["user-info"])]
     #[ORM\Column]
     private array $roles = [];
 
+    #[Groups(["user-info"])]
     #[ORM\Column(length: 255)]
     private ?string $api_token;
 
+    #[Groups(["user-info"])]
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
+    #[Groups(["user-info"])]
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
+
+    #[Groups(["car-id"])]
+    /**
+     * @var Collection<int, Car>
+     */
+    #[ORM\OneToMany(targetEntity: Car::class, mappedBy: 'user')]
+    private Collection $cars;
 
 
     /** @throws \Exception */
     public function __construct()
     {
         $this->api_token = bin2hex(random_bytes(20));
+        $this->cars = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -281,6 +307,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPostalCode(string $postal_code): static
     {
         $this->postal_code = $postal_code;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Car>
+     */
+    public function getCars(): Collection
+    {
+        return $this->cars;
+    }
+
+    public function addCar(Car $car): static
+    {
+        if (!$this->cars->contains($car)) {
+            $this->cars->add($car);
+            $car->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCar(Car $car): static
+    {
+        if ($this->cars->removeElement($car)) {
+            // set the owning side to null (unless already changed)
+            if ($car->getUser() === $this) {
+                $car->setUser(null);
+            }
+        }
 
         return $this;
     }

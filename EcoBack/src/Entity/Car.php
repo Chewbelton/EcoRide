@@ -4,35 +4,49 @@ namespace App\Entity;
 
 use App\Repository\CarRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 class Car
 {
+    #[Groups(["car-creation"])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Groups(["car-creation"])]
     #[ORM\Column(length: 50)]
     private ?string $model = null;
 
+    #[Groups(["car-creation"])]
     #[ORM\Column(length: 50)]
     private ?string $plate_number = null;
 
+    #[Groups(["car-creation"])]
     #[ORM\Column(length: 50)]
     private ?string $date_plate_number = null;
 
+    #[Groups(["car-creation"])]
     #[ORM\Column(length: 50)]
     private ?string $fuel = null;
 
+    #[Groups(["car-creation"])]
     #[ORM\Column(length: 50)]
     private ?string $color = null;
 
+    #[Groups(["car-creation"])]
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
+    #[Groups(["car-creation"])]
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
+
+    #[Groups(["user-car-relation"])]
+    #[ORM\ManyToOne(inversedBy: 'cars')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -119,6 +133,18 @@ class Car
     public function setUpdatedAt(?\DateTimeImmutable $updated_at): static
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

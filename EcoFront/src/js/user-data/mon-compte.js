@@ -382,11 +382,11 @@ function displayUserInfo() {
     Object.keys(result).forEach(key => {
       userInfoArray.push(result[key])
     })
-    displayUserName.innerHTML = userInfoArray[6] + " " + userInfoArray[5];
-    displayPseudo.innerHTML = userInfoArray[10];
-    displayMail.innerHTML = userInfoArray[1];
-    displayAdress.innerHTML = userInfoArray[9] + ", " + userInfoArray[15];
-    displayPhone.innerHTML = userInfoArray[8].replace(/(\d{2}|\+[3]{2}\d)(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
+    displayUserName.innerHTML = userInfoArray[2] + " " + userInfoArray[1];
+    displayPseudo.innerHTML = userInfoArray[8];
+    displayMail.innerHTML = userInfoArray[3];
+    displayAdress.innerHTML = userInfoArray[6] + ", " + userInfoArray[7];
+    displayPhone.innerHTML = userInfoArray[9].replace(/(\d{2}|\+[3]{2}\d)(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
   })
   .catch(error =>{
     console.error("erreur lors de la récupération des données utilisateur", error);

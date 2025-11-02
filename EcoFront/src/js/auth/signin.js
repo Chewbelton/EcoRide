@@ -6,8 +6,6 @@ const signInForm = document.getElementById('signInForm');
 btnSignIn.addEventListener('click', checkCredentials);
 
 function checkCredentials() {
-  // Pour l'instant, credentials en "dur" qu'il faudra récupérer plus tard via l'API
-
   let dataForm = new FormData(signInForm);
 
   const myHeaders = new Headers();
