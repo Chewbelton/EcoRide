@@ -102,8 +102,8 @@ function saveNewVehicle() {
       }
     })
     .then(result => {
-      alert("Super ! Votre véhicule est désormais enregistré. Vous pouvez commencer à proposer des covoiturages.");
-      document.location.href="/new-trip";
+/*       alert("Super ! Votre véhicule est désormais enregistré. Vous pouvez commencer à proposer des covoiturages.");
+      document.location.href="/new-trip"; */
     })
     .catch((error) => console.error(error));
 }

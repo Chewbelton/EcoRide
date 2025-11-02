@@ -1,4 +1,76 @@
-<h2>Créer un nouveau trajet</h2>
-<div> <!-- Enregistrer une nouvelle voiture -->
-  <a href="/new-vehicle" class="text-link">Vous n'avez pas encore enregistré votre véhicule ? C'est ici que ça se passe.</a>
-</div>
+<section class="medium-central-content">
+  <h2 class="main-page-h2">Créer un trajet</h2>
+
+  <!-- Section formulaire -->
+  <form class="green-border-box" id="newTripForm">
+    <div class="zone-saisie column-flex-containers">
+      <label for="placesInput" class="secondary-text">Statut du voyage</label>
+      <div class="white-form-input container-input default-trip-status">
+        <label for="defaultStatusInput">À venir</label>
+        <input type="radio" id="defaultStatusInput" name="Status" value="À venir" checked/>
+      </div>
+    </div>
+    <div class="zone-saisie">
+      <label for="adressDepartInput" class="secondary-text">Adresse de départ</label>
+      <input class="form-control container-input white-form-input" type="text" id="adressDepartInput" placeholder="1, rue de la Ville" name="AdresseDepart" required>
+    </div>
+    <div class="zone-saisie">
+      <label for="cpDepartInput" class="secondary-text">Code postal du départ</label>
+      <input class="form-control container-input white-form-input" type="text" id="cpDepartInput" placeholder="15845 Ville" name="cpDepart" required>
+    </div>
+    <div class="form-inline-small-input">
+      <div class="zone-saisie">
+        <label for="heureDepartInput" class="secondary-text">Heure du départ</label>
+        <input class="form-control container-input white-form-input" type="text" id="heureDepartInput" name="HeureDepart" required>
+      </div>
+      <div class="zone-saisie">
+        <label for="dateDepartInput" class="secondary-text">Date du départ</label>
+        <input class="form-control container-input white-form-input" type="text" id="dateDepartInput" name="DateDepart" required>
+      </div>
+    </div>
+    <div class="zone-saisie">
+      <label for="adressArriveeInput" class="secondary-text">Adresse d'arrivée</label>
+      <input class="form-control container-input white-form-input" type="text" id="adressArriveeInput" placeholder="5, avenue de la Cité" name="AdresseArrivee" required>
+    </div>
+    <div class="zone-saisie">
+      <label for="cpArriveeInput" class="secondary-text">Code postal d'arrivée</label>
+      <input class="form-control container-input white-form-input" type="text" id="cpArriveeInput" placeholder="45896 Cité" name="cpArrivee" required>
+    </div>
+    <div class="form-inline-small-input">
+      <div class="zone-saisie">
+        <label for="heureArriveeInput" class="secondary-text">Heure d'arrivée</label>
+        <input class="form-control container-input white-form-input" type="text" id="heureArriveeInput" name="HeureArrivee" required>
+      </div>
+      <div class="zone-saisie">
+        <label for="dateArriveeInput" class="secondary-text">Date d'arrivée</label>
+        <input class="form-control container-input white-form-input" type="text" id="dateArriveeInput" name="DateArrivee" required>
+      </div>
+    </div>
+    <div class="form-inline-small-input">
+      <div class="zone-saisie">
+        <label for="prixInput" class="secondary-text">Prix par passager</label>
+        <input class="form-control container-input white-form-input" type="text" id="prixInput" placeholder="25" name="Prix" required>
+      </div>
+      <div class="zone-saisie">
+        <label for="placesInput" class="secondary-text">Nombre de places</label>
+        <input class="form-control container-input white-form-input" type="text" id="placesInput" placeholder="3" name="NbrPlaces" required>
+      </div>
+    </div>
+
+    <div class="zone-saisie column-flex-containers">
+      <label for="placesInput" class="secondary-text">Préférences</label>
+      <div class="white-form-input container-input new-trip-choices">
+        <div class="new-trip-choices">
+          <label for="animauxInput" class="new-trip-label">Animaux</label>
+          <input type="checkbox" id="animauxInput" name="filter" value="animaux" class="new-trip-boxes"/>
+        </div>
+        <div class="new-trip-choices">
+          <label for="fumeurInput" class="new-trip-label">Fumeur</label>
+          <input type="checkbox" id="fumeurInput" name="filter" value="fumeur" class="new-trip-boxes"/>
+        </div>
+      </div>
+    </div>
+    <div class="center-containers-child">
+      <button type="button" class="button-class" id="bouttonSaveTrip">Enregistrer</button>
+    </div>
+  </form>

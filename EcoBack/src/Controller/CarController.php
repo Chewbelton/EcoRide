@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Car;
 use App\Repository\CarRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\{JsonResponse, Request, Response};
@@ -35,6 +36,7 @@ class CarController extends AbstractController
         Car::class,
         'json'
     );
+    $car->setCreatedAt(new DateTimeImmutable());
 
     $this->manager->persist($car);
     $this->manager->flush();

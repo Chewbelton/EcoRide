@@ -392,3 +392,6 @@ function displayUserInfo() {
     console.error("erreur lors de la récupération des données utilisateur", error);
   });
 }
+
+
+// Display les infos voiture

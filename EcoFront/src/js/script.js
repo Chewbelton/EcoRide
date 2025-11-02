@@ -1,5 +1,3 @@
-
-
 const tokenCookieName = "accesstoken";
 const roleCookieName = "role";
 const signoutButton = document.getElementById('signoutBoutton');

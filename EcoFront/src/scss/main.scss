@@ -154,9 +154,6 @@ p, button, li, .nav-text, div, input, a, .form-control {
   font-weight: bold;
 }
 
-
-
-
 /* ______________________________ */
 /* _____ Containers styling _____ */
 
@@ -246,10 +243,6 @@ input:focus, button {
   text-align: center;
 }
 
-.search-bar-text {
-  font-style: italic;
-  opacity: 50%;
-}
 
 /* __________________________________________ */
 /* _____ Bouttons et autres "pastilles" _____ */
@@ -361,6 +354,7 @@ header {
   /* -- header title and logo -- */
 
 #logo {
+  width: 30%;
   color: var(--secondary);
   display: inline flex;
   align-items: center;
@@ -530,7 +524,7 @@ footer a {
   display: inline flex;
 }
 
-input[type="number"] {
+#prix-max, #duree-max {
   width: 6rem;
   border-right: var(--border-dark);
   border-bottom: var(--border-dark);
@@ -949,10 +943,14 @@ article h1 {
 }
 
 .account-info {
-  margin-bottom: 2rem;
+  padding-bottom: 2.5rem;
 }
 
-.account-info:hover {
+.account-info p:last-child {
+  padding-top: 0.75rem;
+}
+
+.account-info:hover, .last-account-info:hover {
   font-weight: bold;
   cursor: pointer;
 }
@@ -996,7 +994,7 @@ article h1 {
 
 .informations-vehicule-title {
   width: 100%;
-  margin: 4rem 0 2rem 0;
+  margin-top: 4rem; 
   display: inline flex;
   justify-content: space-between;
   align-items: center;
@@ -1049,10 +1047,47 @@ article h1 {
 }
 
 
+/* gestion nouveaux trajets */
+
+.default-trip-status {
+  display: flex;
+  align-items: center;
+}
+
+.default-trip-status input {
+  width: 3rem;
+}
+
+.new-trip-choices {
+  display: inline flex;
+}
+
+.new-trip-label {
+  margin-right: 1rem;
+}
+
+.new-trip-boxes {
+  margin-right: 2rem;
+}
+
+.form-inline-small-input {
+  width: 100%;
+  display: inline flex;
+  justify-content: space-between;
+}
+
+.form-inline-small-input div:first-child{
+  margin-right: 1rem;
+}
+
 /* Suppression du compte */
 
 .delete-account .button-class {
   margin: 2rem 0 4rem 0;
+}
+
+.trip-price-places p {
+  margin-top: 2rem;
 }
 
 
@@ -1199,11 +1234,8 @@ article h1 {
 
   .nav-text {
     padding: 0;
-  }
-
-  .nav-text a {
-    width: 100%;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
@@ -1396,5 +1428,19 @@ article h1 {
   
   .places-dispo {
     padding-right: .5rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .form-inline-small-input {
+    flex-wrap: wrap;
+  }
+
+  .form-inline-small-input div:first-child {
+    margin-right: 0;
+  }
+
+  .form-inline-small-input .zone-saisie  {
+    width: 100%;
   }
 }

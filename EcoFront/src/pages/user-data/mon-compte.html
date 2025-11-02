@@ -16,22 +16,28 @@
     <p class="secondary-text italic">Cliquez sur une ligne pour la modifier.</p>
     <div class="green-border-box">
       <div class="account-info" data-bs-toggle="modal" data-bs-target="#editPseudoModal">
-        <p><span>Pseudo : </span><span class="secondary-color bold" id="displayPseudo"></span></p>
+        <p class="secondary-text italic">Pseudo</p>
+        <p class="secondary-color" id="displayPseudo"></p>
       </div>
       <div class="account-info" data-bs-toggle="modal" data-bs-target="#editMailModal">
-        <p><span>E-mail : </span><span class="secondary-color bold" id="displayMail"></span></p>
+        <p class="secondary-text italic">E-mail</p>
+        <p class="secondary-color" id="displayMail"></p>
       </div>
       <div class="account-info" data-bs-toggle="modal" data-bs-target="#editPasswordModal">
-        <p><span>Mot de passe : </span><span class="secondary-color bold"> * * * * *</span></p>
+        <p class="secondary-text italic">Mot de passe</p>
+        <p class="secondary-color"> * * * * *</p>
       </div>
       <div class="account-info" data-bs-toggle="modal" data-bs-target="#editAdressModal">
-        <p><span>Adresse : </span><span class="secondary-color bold" id="displayAdress"></span></p>
+        <p class="secondary-text italic">Adresse</p>
+        <p class="secondary-color" id="displayAdress"></p>
       </div>
       <div class="account-info" data-bs-toggle="modal" data-bs-target="#editPhoneNumberModal">
-        <p><span>Téléphone : </span><span class="secondary-color bold"  id="displayPhone"></span></p>
+        <p class="secondary-text italic">Téléphone</p>
+        <p class="secondary-color"  id="displayPhone"></p>
       </div>
-      <div data-bs-toggle="modal" data-bs-target="#editRoleModal">
-        <p><span>Rôle : </span><span class="secondary-color bold">Passager</span></p>
+      <div class="last-account-info" data-bs-toggle="modal" data-bs-target="#editRoleModal">
+        <p class="secondary-text italic">Rôle</p>
+        <p class="secondary-color">Passager</p>
       </div>
 <!--  À garder, si je trouve comment ignorer les champs vides d'un unique formulaire
       <div class="account-edit-icon">
@@ -40,62 +46,79 @@
     </div>
   </section>
 
-  <!-- Section optionnelle conducteur -->
-  <!-- 
-  Comme pour la section suivante, il faudra ajouter data-show="client" au lien "vous êtes conducteurs ?" puisque les utilisateurs s'étant déjà enregistrés n'auront pas besoin de voir ce bouton
-  Et il faudra mettre un boutton "Je ne suis plus conducteur" en bas de page. Mais pas urgent
-  -->
-  <div>
-    <div class="brk-line"></div>
-    <div class="driver-or-not">
-      <label for="conducteur">Vous êtes conducteur ?</label>
-      <button type="button" class="button-class" id="registerDriverButton">S'enregistrer</button>
-    </div>
-  </div>
-
   <!-- Informations sur le(s) véhicule(s) -->  
-  <section>
+  <section class="car-info">
     <!-- 
     WARNING !!!! Ajouter data-show="driver" pour cacher les infos aux utilisateurs non-conducteurs
     Deuxième point : Comment appliquer plusieurs data-attribute.value à un même container, par exemple pour avoir driver et admin en même temps ?
     -->
-    <div> <!-- Enregistrer une nouvelle voiture -->
-      <a href="/new-vehicle" class="text-link">Cliquez ici pour enregistrer un nouveau véhicule.</a>
-    </div>
     <div class="informations-vehicule-title">
-      <h2>Mes véhicules</h2>
-      <button type="button" class="center-containers-child button-class">Ajouter</button>
+      <h3>Mes véhicules</h3>
+      <a href="/new-vehicle" class="center-containers-child button-class">Ajouter</a>
     </div>
     <div class="green-border-box">
-      <h3>Marque Modèle</h3>
-      <div class="liste-vehicule-specs">
-        <div>
-          <p class="secondary-text italic">Immatriculation</p>
-          <p>BA123CA</p>
-        </div>
-        <div>
-          <p class="secondary-text italic">Date d'immatriculation</p>
-          <p>01/01/2025</p>
-        </div>
-        <div>
-          <p class="secondary-text italic">Couleur du véhicule</p>
-          <p>Rouge</p>
-        </div>
-        <div>
-          <p class="secondary-text italic">Nombre de place</p>
-          <p>3</p>
-        </div>
-        <div>
-          <p class="secondary-text italic">Préférences (fumeur, animaux)</p>
-          <p>Non fumeur, OK animaux !</p>
-        </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Modèle</p>
+        <p class="secondary-color" id=""></p>
       </div>
-      <div class="account-delete-icon">
-        <button type="button" class="bi bi-trash"></button>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Immatriculation</p>
+        <p class="secondary-color" id=""></p>
+      </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Date d'immatriculation</p>
+        <p class="secondary-color"></p>
+      </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Carburant</p>
+        <p class="secondary-color" id=""></p>
+      </div>
+      <div class="last-account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Couleur</p>
+        <p class="secondary-color"  id=""></p>
       </div>
     </div>
   </section>
 
+<!-- Informations sur le(s) trajet(s) créé(s) par l'utilisateur -->  
+  <section class="car-info">
+    <!-- 
+    WARNING !!!! Ajouter data-show="driver" pour cacher les infos aux utilisateurs non-conducteurs
+    Deuxième point : Comment appliquer plusieurs data-attribute.value à un même container, par exemple pour avoir driver et admin en même temps ?
+    -->
+    <div class="informations-vehicule-title">
+      <h3>Mes trajets</h3>
+      <a href="/new-trip" class="center-containers-child button-class">Ajouter</a>
+      <!-- <a href="/trip-test" class="center-containers-child button-class">Ajouter</a> -->
+    </div>
+    <div class="green-border-box">
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Statut du trajet</p>
+        <p class="secondary-color" id=""></p>
+      </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Départ</p>
+        <p class="secondary-color" id=""></p>
+      </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Arrivée</p>
+        <p class="secondary-color"></p>
+      </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Nombre de places</p>
+        <p class="secondary-color" id=""></p>
+      </div>
+      <div class="account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Prix par passagers</p>
+        <p class="secondary-color"  id=""></p>
+      </div>
+      <div class="last-account-info" data-bs-toggle="modal" data-bs-target="">
+        <p class="secondary-text italic">Préférences</p>
+        <p class="secondary-color"></p>
+      </div>
+  </section>
+
+  
   <!-- Suppression du compte -->
   <section class="delete-account">
     <h2 class="main-page-h2 warning-text">Supression du compte</h2>
