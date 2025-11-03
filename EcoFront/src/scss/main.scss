@@ -946,7 +946,7 @@ article h1 {
   padding-bottom: 2.5rem;
 }
 
-.account-info p:last-child {
+.account-info p:last-child, .last-account-info p:last-child {
   padding-top: 0.75rem;
 }
 
@@ -1058,6 +1058,14 @@ article h1 {
   width: 3rem;
 }
 
+#car-choice-trajet {
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  border: 0.2rem solid var(--background);
+  border-radius: 0.5rem;
+  background-color: transparent;
+}
+
 .new-trip-choices {
   display: inline flex;
 }
@@ -1070,13 +1078,12 @@ article h1 {
   margin-right: 2rem;
 }
 
-.form-inline-small-input {
+.half-box-display {
   width: 100%;
   display: inline flex;
-  justify-content: space-between;
 }
 
-.form-inline-small-input div:first-child{
+.half-box-display div:first-child{
   margin-right: 1rem;
 }
 

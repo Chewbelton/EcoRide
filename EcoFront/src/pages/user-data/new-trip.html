@@ -11,6 +11,14 @@
       </div>
     </div>
     <div class="zone-saisie">
+      <label for="testRecupVoiture" class="secondary-text">Véhicule pour ce trajet : </label>
+      <select name="TestRecupVoiture" id="testRecupVoiture">
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+      </select>
+    </div>
+    <div class="zone-saisie">
       <label for="adressDepartInput" class="secondary-text">Adresse de départ</label>
       <input class="form-control container-input white-form-input" type="text" id="adressDepartInput" placeholder="1, rue de la Ville" name="AdresseDepart" required>
     </div>
@@ -18,7 +26,7 @@
       <label for="cpDepartInput" class="secondary-text">Code postal du départ</label>
       <input class="form-control container-input white-form-input" type="text" id="cpDepartInput" placeholder="15845 Ville" name="cpDepart" required>
     </div>
-    <div class="form-inline-small-input">
+    <div class="half-box-display">
       <div class="zone-saisie">
         <label for="heureDepartInput" class="secondary-text">Heure du départ</label>
         <input class="form-control container-input white-form-input" type="text" id="heureDepartInput" name="HeureDepart" required>
@@ -36,7 +44,7 @@
       <label for="cpArriveeInput" class="secondary-text">Code postal d'arrivée</label>
       <input class="form-control container-input white-form-input" type="text" id="cpArriveeInput" placeholder="45896 Cité" name="cpArrivee" required>
     </div>
-    <div class="form-inline-small-input">
+    <div class="half-box-display">
       <div class="zone-saisie">
         <label for="heureArriveeInput" class="secondary-text">Heure d'arrivée</label>
         <input class="form-control container-input white-form-input" type="text" id="heureArriveeInput" name="HeureArrivee" required>
@@ -46,7 +54,7 @@
         <input class="form-control container-input white-form-input" type="text" id="dateArriveeInput" name="DateArrivee" required>
       </div>
     </div>
-    <div class="form-inline-small-input">
+    <div class="half-box-display">
       <div class="zone-saisie">
         <label for="prixInput" class="secondary-text">Prix par passager</label>
         <input class="form-control container-input white-form-input" type="text" id="prixInput" placeholder="25" name="Prix" required>
@@ -74,3 +82,4 @@
       <button type="button" class="button-class" id="bouttonSaveTrip">Enregistrer</button>
     </div>
   </form>
+</section>

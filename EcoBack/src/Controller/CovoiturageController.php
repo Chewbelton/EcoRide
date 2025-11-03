@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Covoiturage;
+use App\Entity\Car;
+use APp\Entity\User;
 use App\Repository\CovoiturageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,10 +13,12 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 use OpenApi\Attributes as OA;
 use OpenApi\Attributes\Property;
 use OpenApi\Attributes\RequestBody;
+
 
 #[Route('api/covoiturage', name: 'app_api_covoiturage_')]
 class CovoiturageController extends AbstractController
@@ -110,18 +114,20 @@ class CovoiturageController extends AbstractController
         content: new OA\JsonContent()
     )]
 
-    public function create(Request $request) : JsonResponse
+    public function create(Request $request, #[CurrentUser] ?User $user) : JsonResponse
     {
     $covoiturage = $this->serializer->deserialize(
         $request->getContent(),
         Covoiturage::class,
         'json'
     );
+/*     $covoiturage->setCar($car);
+    $covoiturage->setUser($user); */
 
     $this->manager->persist($covoiturage);
     $this->manager->flush();
 
-    $responseData = $this->serializer->serialize($covoiturage, 'json');
+    $responseData = $this->serializer->serialize($covoiturage, 'json', ['groups' => 'covoit-info']);
     $location = $this->urlGenerator->generate(
         'app_api_covoiturage_read',
         ['id' => $covoiturage->getId()],
@@ -138,7 +144,7 @@ class CovoiturageController extends AbstractController
     $covoiturage = $this->repository->findOneBy(['id' => $id]);
 
     if($covoiturage) {
-        $responseData = $this->serializer->serialize($covoiturage, 'json');
+        $responseData = $this->serializer->serialize($covoiturage, 'json', ['groups' => 'covoit-info']);
         return new JsonResponse($responseData, Response::HTTP_OK, [], true);
     }
 

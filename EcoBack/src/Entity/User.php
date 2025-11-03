@@ -90,12 +90,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Car::class, mappedBy: 'user')]
     private Collection $cars;
 
+    /**
+     * @var Collection<int, Covoiturage>
+     */
+    #[Groups(["covoit-user-id"])]
+    #[ORM\ManyToMany(targetEntity: Covoiturage::class, mappedBy: 'user')]
+    private Collection $covoiturages;
+
 
     /** @throws \Exception */
     public function __construct()
     {
         $this->api_token = bin2hex(random_bytes(20));
         $this->cars = new ArrayCollection();
+        $this->covoiturages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -336,6 +344,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             if ($car->getUser() === $this) {
                 $car->setUser(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Covoiturage>
+     */
+    public function getCovoiturages(): Collection
+    {
+        return $this->covoiturages;
+    }
+
+    public function addCovoiturage(Covoiturage $covoiturage): static
+    {
+        if (!$this->covoiturages->contains($covoiturage)) {
+            $this->covoiturages->add($covoiturage);
+            $covoiturage->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCovoiturage(Covoiturage $covoiturage): static
+    {
+        if ($this->covoiturages->removeElement($covoiturage)) {
+            $covoiturage->removeUser($this);
         }
 
         return $this;

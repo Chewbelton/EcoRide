@@ -3,51 +3,84 @@
 namespace App\Entity;
 
 use App\Repository\CovoiturageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: CovoiturageRepository::class)]
 class Covoiturage
 {
+    #[Groups(["covoit-info"])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $status = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 255)]
     private ?string $adressDepart = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 255)]
     private ?string $cpDepart = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 50)]
     private ?string $heureDepart = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 50)]
     private ?string $dateDepart = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 255)]
     private ?string $adressArrivee = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 255)]
     private ?string $cpArrivee = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 50)]
     private ?string $heureArrivee = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 50)]
     private ?string $dateArrivee = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column]
     private ?string $price = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column]
     private ?string $nbrPlace = null;
 
+    #[Groups(["covoit-info"])]
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $preferences = null;
+
+    #[Groups(["car-covoit-id"])]
+    #[ORM\ManyToOne(inversedBy: 'covoiturages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Car $car = null;
+
+    /**
+     * @var Collection<int, User>
+     */
+    #[Groups(["user-covoit-id"])]
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'covoiturages')]
+    private Collection $user;
+
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -194,6 +227,42 @@ class Covoiturage
     public function setPreferences(?string $preferences): static
     {
         $this->preferences = $preferences;
+
+        return $this;
+    }
+
+    public function getCar(): ?Car
+    {
+        return $this->car;
+    }
+
+    public function setCar(?Car $car): static
+    {
+        $this->car = $car;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): static
+    {
+        if (!$this->user->contains($user)) {
+            $this->user->add($user);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): static
+    {
+        $this->user->removeElement($user);
 
         return $this;
     }

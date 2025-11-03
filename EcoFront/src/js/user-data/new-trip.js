@@ -100,7 +100,6 @@ function validatePostalCode(input) {
 }
 
 function validateTime(input) {
-  //Définir mon regex
   const timeRegex = /^[0-9]{2}[\:][0-9]{2}$/;
   const timeUser = input.value;
   if(timeUser.match(timeRegex)){
@@ -115,7 +114,6 @@ function validateTime(input) {
 }
 
 function validateDate(input) {
-  //Définir mon regex
   const dateRegex = /^[0-9]{2}[\-][0-9]{2}[\-][0-9]{4}$/;
   const dateUser = input.value;
   if(dateUser.match(dateRegex)){
