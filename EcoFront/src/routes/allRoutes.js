@@ -10,13 +10,13 @@ export const allRoutes = [
     new Route("/page-test", "Page test", "./src/pages/page-test.html", [], "./src/js/page-test.js"),
 
     /* Création de compte, voiture, covoiturage */
-    new Route("/mon-compte", "Mon compte", "./src/pages/user-data/mon-compte.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/mon-compte.js"),
-    new Route("/new-vehicle", "Mon véhicule", "./src/pages/user-data/new-vehicle.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/new-vehicle.js"),
-    new Route("/new-trip", "Créer un trajet", "./src/pages/user-data/new-trip.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/new-trip.js"),  // WARNING !!! GET BACK TO THIS LINE AFTER TEST
+    new Route("/moncompte", "Mon compte", "./src/pages/user-data/moncompte.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/moncompte.js"),
+    new Route("/newvehicle", "Mon véhicule", "./src/pages/user-data/newvehicle.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/newvehicle.js"),
+    new Route("/newtrip", "Créer un trajet", "./src/pages/user-data/newtrip.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/newtrip.js"),  // WARNING !!! GET BACK TO THIS LINE AFTER TEST
 
     /* Chercher et valider un trajet */
-    new Route("/choix-trajet", "Covoiturages", "./src/pages/choix-trajet.html", []),
-    new Route("/detail-trajet", "Détail du trajet", "./src/pages/detail-trajet.html", [])
+    new Route("/choixtrajet", "Covoiturages", "./src/pages/choixtrajet.html", []),
+    new Route("/detailtrajet", "Détail du trajet", "./src/pages/detailtrajet.html", [])
 ];
 
 //Le titre s'affiche comme ceci : Route.titre - websitename
