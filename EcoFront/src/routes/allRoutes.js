@@ -14,9 +14,6 @@ export const allRoutes = [
     new Route("/new-vehicle", "Mon véhicule", "./src/pages/user-data/new-vehicle.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/new-vehicle.js"),
     new Route("/new-trip", "Créer un trajet", "./src/pages/user-data/new-trip.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/new-trip.js"),  // WARNING !!! GET BACK TO THIS LINE AFTER TEST
 
-    // WARNING !!!! TEST ROUTE FOR COVOIT CREATION
-/*     new Route("/trip-test", "Créer un trajet", "./src/pages/user-data/trip-test.html", ["connected", "driver", "employee", "admin"], "./src/js/user-data/trip-test.js"), */
-
     /* Chercher et valider un trajet */
     new Route("/choix-trajet", "Covoiturages", "./src/pages/choix-trajet.html", []),
     new Route("/detail-trajet", "Détail du trajet", "./src/pages/detail-trajet.html", [])
