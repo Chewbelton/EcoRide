@@ -1,72 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="./src/assets/favicon.ico">
-  
-  <!-- feuille de style -->
-  <link rel="stylesheet" href="./src/scss/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./src/assets/favicon.ico" />
 
-  <!-- Personnal fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <title>EcoRide - Accueil</title>
-</head>
+    <!-- feuille de style -->
+    <link rel="stylesheet" href="./src/scss/main.css" />
 
+    <!-- Personnal fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>EcoRide - Accueil</title>
+  </head>
 
-<body>
-  <!-- ---- header ---- -->
-  <header>
-    <a id="logo" href="/">
-      <img src="./src/assets/images/logo.jpg">
-      <h2 id="header-site-title">EcoRide</h2>
-    </a>
-    <form class="search-form">
-      <section class="search-bar structure-bouttons-icone">
-        <input type="text" placeholder="Rechercher...">
-        <button type="button" class="center-containers-child header-search-container">
-          <i class="bi bi-search"></i>
-        </button>
-      </section>
-    </form>
-    <nav class="navbar navbar-expand-lg">
+  <body>
+    <!-- ---- header ---- -->
+    <header>
+      <a id="logo" href="/">
+        <img src="./src/assets/images/logo.jpg" />
+        <h2 id="header-site-title">EcoRide</h2>
+      </a>
+      <form class="search-form">
+        <section class="search-bar structure-bouttons-icone">
+          <input type="text" placeholder="Rechercher..." />
+          <button
+            type="button"
+            class="center-containers-child header-search-container"
+          >
+            <i class="bi bi-search"></i>
+          </button>
+        </section>
+      </form>
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid" id="nav">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-text"><a href="/">Accueil</a></li>
               <li class="nav-text"><a href="/choix-trajet">Covoiturage</a></li>
-              <li class="nav-text" data-show="connected"><a href="/mon-compte">Mon compte</a></li>
+              <li class="nav-text" data-show="connected">
+                <a href="/mon-compte">Mon compte</a>
+              </li>
               <li class="nav-text"><a href="/contacts">Contacts</a></li>
-              <li class="nav-text" data-show="disconnected"><a href="/signin">Connexion</a></li>
-              <li class="nav-text" data-show="connected"><a id="signoutBoutton">Déconnexion</a></li>
+              <li class="nav-text" data-show="disconnected">
+                <a href="/signin">Connexion</a>
+              </li>
+              <li class="nav-text" data-show="connected">
+                <a id="signoutBoutton">Déconnexion</a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-  </header>
-  
-  <!-- ---- main ---- -->
-  <main id="main-page">
-    
-  </main>
+    </header>
 
-  <!-- ---- footer ---- -->
-  <footer>
-    <div class="contacts">
-      <a href="/contacts" class="secondary-text" id="javafetchtest">Mail : contact@ecoride.fr</a>
-    </div>
-    <div class="mentions-legales">
-      <a href="#" class="secondary-text">Mentions légales</a>
-    </div>
-  </footer>
+    <!-- ---- main ---- -->
+    <main id="main-page"></main>
 
-  <!-- script JavaScript -->
-  <script src="./src/js/script.js"></script>
-  <script type="module" src="./src/routes/router.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- ---- footer ---- -->
+    <footer>
+      <div class="contacts">
+        <a href="/contacts" class="secondary-text" id="javafetchtest"
+          >Mail : contact@ecoride.fr</a
+        >
+      </div>
+      <div class="mentions-legales">
+        <a href="#" class="secondary-text">Mentions légales</a>
+      </div>
+    </footer>
+
+    <!-- script JavaScript -->
+    <script src="./src/js/script.js"></script>
+    <script type="module" src="./src/routes/router.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
